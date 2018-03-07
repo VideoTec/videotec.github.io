@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/编程/android/android studio/res/color-state-list/color-state-list/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/18/android/android sdk/android.provider/MediaStore/MediaStore.Video-query/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/编程/android/android studio/res/color-state-list/color-state-list/" itemprop="url">android color state list</a></h1>
+                <a class="post-title-link" href="/2017/10/18/android/android sdk/android.provider/MediaStore/MediaStore.Video-query/" itemprop="url">MediaStore.Video-query</a></h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,373 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T13:28:51+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T11:02:36+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/android-provider/" itemprop="url" rel="index">
+                    <span itemprop="name">android.provider</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/android-provider/MediaStore/" itemprop="url" rel="index">
+                    <span itemprop="name">MediaStore</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://developer.android.com/reference/android/provider/MediaStore.Video.html" target="_blank" rel="external">MediaStore.Video</a><br>static final Cursor    query(ContentResolver cr, Uri uri, String[] projection)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fetchVideoList</span><span class="params">()</span> </span>&#123;</div><div class="line">    String[] columns = &#123;</div><div class="line">        MediaStore.Video.VideoColumns._ID,</div><div class="line">        MediaStore.Video.VideoColumns.TITLE,</div><div class="line">        MediaStore.Video.VideoColumns.ARTIST</div><div class="line">    &#125;;</div><div class="line">    Cursor list = MediaStore.Video.query(getContentResolver(),</div><div class="line">            MediaStore.Video.Media.EXTERNAL_CONTENT_URI, columns);</div><div class="line">    Log.i(TAG, <span class="string">"count: "</span> + list.getCount());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>比较：<br>ContentResolver public final @Nullable Cursor query(@RequiresPermission.Read @NonNull Uri uri,<br>            @Nullable String[] projection, @Nullable String selection,<br>            @Nullable String[] selectionArgs, @Nullable String sortOrder)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class	MediaStore.Video.Media</div><div class="line">class	MediaStore.Video.Thumbnails</div><div class="line">参考：http://blog.csdn.net/chenjie19891104/article/details/6338910</div><div class="line">    String[] thumbColumns = new String[]&#123;</div><div class="line">                MediaStore.Video.Thumbnails.DATA,</div><div class="line">                MediaStore.Video.Thumbnails.VIDEO_ID</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        String[] mediaColumns = new String[]&#123;</div><div class="line">                MediaStore.Video.Media.DATA,</div><div class="line">                MediaStore.Video.Media._ID,</div><div class="line">                MediaStore.Video.Media.TITLE,</div><div class="line">                MediaStore.Video.Media.MIME_TYPE</div><div class="line">        &#125;;</div><div class="line">        https://stackoverflow.com/questions/20517687/mediastore-video-thumbnails-getthumbnail?lq=1</div><div class="line">        MediaStore.Video.Thumbnails</div><div class="line">        public static Bitmap getThumbnail (ContentResolver cr, long origId, long groupId, int kind, BitmapFactory.Options options)</div><div class="line">        http://www.jianshu.com/p/498c9d06c193</div><div class="line">        Android读取本地照片和视频相册</div></pre></td></tr></table></figure></p>
+<p>异常情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#################################################################</div><div class="line">Error Code : 1 (SQLITE_ERROR)</div><div class="line">Caused By : SQL(query) error or missing database.</div><div class="line">(no such column: _display_name (code 1): , while compiling: SELECT _id, _data FROM videothumbnails ORDER BY _display_name)</div><div class="line">#################################################################)</div><div class="line">#################################################################</div><div class="line">  at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:181)</div><div class="line">  at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:137)</div><div class="line">  at android.content.ContentProviderProxy.query(ContentProviderNative.java:421)</div><div class="line">  at android.content.ContentResolver.query(ContentResolver.java:489)</div><div class="line">  at android.content.ContentResolver.query(ContentResolver.java:433)</div><div class="line">  at android.provider.MediaStore$Video.query(MediaStore.java:1965)</div><div class="line">  at work.wangxiang.lansodemo.LansoDemoActivity.fetchVideoList(LansoDemoActivity.java:148)</div><div class="line">  at work.wangxiang.lansodemo.LansoDemoActivity.onTest(LansoDemoActivity.java:106)</div><div class="line"></div><div class="line">        Cursor list = MediaStore.Video.query(getContentResolver(),</div><div class="line">                MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, thumbColumns);</div></pre></td></tr></table></figure></p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p><a href="https://stackoverflow.com/questions/13613443/android-mediastore-video-query-is-returning-null" target="_blank" rel="external">Android - MediaStore.Video.query() is returning null</a><br><a href="https://github.com/lovetuzitong/MultiImageSelector" target="_blank" rel="external">开源例子</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/12/android/android sdk/android.app.Activity/activity-override-lifecycle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/12/android/android sdk/android.app.Activity/activity-override-lifecycle/" itemprop="url">activity-override</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-12T12:22:38+08:00">
+                2017-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/android-app-Activity/" itemprop="url" rel="index">
+                    <span itemprop="name">android.app.Activity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/image/activity_lifecycle.png" alt="activity lifecycle"><br><a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" rel="external">Activity Lifecycle</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public class Activity extends ApplicationContext &#123;</div><div class="line">    protected void onCreate(Bundle savedInstanceState);</div><div class="line"></div><div class="line">    protected void onStart();</div><div class="line"></div><div class="line">    protected void onRestart();</div><div class="line"></div><div class="line">    protected void onResume();</div><div class="line"></div><div class="line">    protected void onPause();</div><div class="line"></div><div class="line">    protected void onStop();</div><div class="line"></div><div class="line">    protected void onDestroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>other override<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Override</div><div class="line">public void onWindowFocusChanged(boolean hasFocus) &#123;</div><div class="line">    super.onWindowFocusChanged(hasFocus);</div><div class="line">    if (hasFocus) &#123;</div><div class="line">        LanSongUtil.hideBottomUIMenu(this);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/12/android/android studio/tools/adb-install-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/12/android/android studio/tools/adb-install-error/" itemprop="url">adb-install-error</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-12T11:44:10+08:00">
+                2017-10-12
               </time>
             
 
@@ -365,19 +730,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
-                    <span itemprop="name">res</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/color-state-list/" itemprop="url" rel="index">
-                    <span itemprop="name">color-state-list</span>
+                  <a href="/categories/编程/android/android-studio/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
                   </a>
                 </span>
 
@@ -415,11 +769,9 @@
       
         
           
-            <p><a href="https://developer.android.com/guide/topics/resources/color-list-resource.html" target="_blank" rel="external">Color State List Resource</a></p>
-<p>A ColorStateList is an object you can define in XML that you can apply as a color, but will actually change colors, depending on the state of the View object to which it is applied. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a color state list, you can provide a different color during each state.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;</div><div class="line">    &lt;item</div><div class="line">        android:color=&quot;hex_color&quot;</div><div class="line">        android:state_pressed=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_focused=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_selected=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checkable=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checked=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_enabled=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_window_focused=[&quot;true&quot; | &quot;false&quot;] /&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item android:state_pressed=&quot;true&quot;</div><div class="line">          android:color=&quot;#ffff0000&quot;/&gt; &lt;!-- pressed --&gt;</div><div class="line">    &lt;item android:state_focused=&quot;true&quot;</div><div class="line">          android:color=&quot;#ff0000ff&quot;/&gt; &lt;!-- focused --&gt;</div><div class="line">    &lt;item android:color=&quot;#ff000000&quot;/&gt; &lt;!-- default --&gt;</div><div class="line">&lt;/selector&gt;</div><div class="line"></div><div class="line">&lt;Button</div><div class="line">    android:layout_width=&quot;fill_parent&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:text=&quot;@string/button_text&quot;</div><div class="line">    android:textColor=&quot;@color/button_text&quot; /&gt;</div></pre></td></tr></table></figure>
-<h4 id="对比-State-List-Drawable"><a href="#对比-State-List-Drawable" class="headerlink" title="对比 State List Drawable"></a>对比 State List Drawable</h4>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Installation failed with message Failed to finalize session : INSTALL_FAILED_INVALID_APK: /data/app/vmdl718805446.tmp/11_youle_v__________ version code 7 inconsistent with 8.</div><div class="line">It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.</div><div class="line"></div><div class="line">WARNING: Uninstalling will remove the application data!</div><div class="line"></div><div class="line">Do you want to uninstall the existing application?</div></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/19070816/failure-install-failed-invalid-apk" target="_blank" rel="external">failure-install-failed-invalid-apk</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">I was getting this in Android Studio and all I did to fix it was go to &quot;Build&quot; &gt; &quot;Clean Project&quot; and it just worked.</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -467,7 +819,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/编程/android/android studio/res/resource/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/11/android/exception/java.lang.IllegalArgumentException-MediaMetadataRetriever.setDataSource/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -486,7 +838,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/编程/android/android studio/res/resource/" itemprop="url">android 资源</a></h1>
+                <a class="post-title-link" href="/2017/10/11/android/exception/java.lang.IllegalArgumentException-MediaMetadataRetriever.setDataSource/" itemprop="url">java.lang.IllegalArgumentException-MediaMetadataRetriever.setDataSource</a></h1>
         
 
         <div class="post-meta">
@@ -498,8 +850,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T12:21:54+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T14:32:36+08:00">
+                2017-10-11
               </time>
             
 
@@ -543,19 +895,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
-                    <span itemprop="name">android studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
-                    <span itemprop="name">res</span>
+                  <a href="/categories/编程/android/exception/" itemprop="url" rel="index">
+                    <span itemprop="name">exception</span>
                   </a>
                 </span>
 
@@ -593,29 +934,9 @@
       
         
           
-            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://developer.android.com/guide/topics/resources/available-resources.html" target="_blank" rel="external">Resource Types</a><br><a href="https://developer.android.com/guide/topics/resources/more-resources.html" target="_blank" rel="external">More Resource Types</a></p>
-<h4 id="Resource-Types"><a href="#Resource-Types" class="headerlink" title="Resource Types"></a>Resource Types</h4><p>Each of the documents in this section describe the usage, format and syntax for a certain type of application resource that you can provide in your resources directory (res/).</p>
-<ol>
-<li>Animation Resources<br>Define pre-determined animations.<br>Tween animations are saved in res/anim/ and accessed from the R.anim class.<br>Frame animations are saved in res/drawable/ and accessed from the R.drawable class.</li>
-<li>Color State List Resource<br>Define a color resources that changes based on the View state.<br>Saved in res/color/ and accessed from the R.color class.</li>
-<li>Drawable Resources<br>Define various graphics with bitmaps or XML.<br>Saved in res/drawable/ and accessed from the R.drawable class.</li>
-<li>Layout Resource<br>Define the layout for your application UI.<br>Saved in res/layout/ and accessed from the R.layout class.</li>
-<li>Menu Resource<br>Define the contents of your application menus.<br>Saved in res/menu/ and accessed from the R.menu class.</li>
-<li>String Resources<br>Define strings, string arrays, and plurals (and include string formatting and styling).<br>Saved in res/values/ and accessed from the R.string, R.array, and R.plurals classes.</li>
-<li>Style Resource<br>Define the look and format for UI elements.<br>Saved in res/values/ and accessed from the R.style class.</li>
-<li>Font Resources<br>Define font families and include custom fonts in XML.<br>Saved in res/font/ and accessed from the R.font class.</li>
-<li>More Resource Types<br>Define values such as booleans, integers, dimensions, colors, and other arrays.<br>Saved in res/values/ but each accessed from unique R sub-classes (such as R.bool, R.integer, R.dimen, etc.).</li>
-</ol>
-<h4 id="More-Resource-Types"><a href="#More-Resource-Types" class="headerlink" title="More Resource Types"></a>More Resource Types</h4><p>This page defines more types of resources you can externalize, including:</p>
-<ol>
-<li>Bool<br>XML resource that carries a boolean value.</li>
-<li>Color<br>XML resource that carries a color value (a hexadecimal color).</li>
-<li>Dimension<br>XML resource that carries a dimension value (with a unit of measure).</li>
-<li>ID<br>XML resource that provides a unique identifier for application resources and components.</li>
-<li>Integer<br>XML resource that carries an integer value.</li>
-<li>Integer Array<br>XML resource that provides an array of integers.</li>
-<li>Typed Array<br>XML resource that provides a TypedArray (which you can use for an array of drawables)</li>
-</ol>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">    super.onActivityResult(requestCode, resultCode, data);</div><div class="line"></div><div class="line">    if (requestCode == VideoApi.REQUEST_CODE_SELECT_VIDEO &amp;&amp; RESULT_OK == resultCode) &#123;</div><div class="line">        Uri videoUri = data.getData();</div><div class="line">        MediaMetadataRetriever retriever = new MediaMetadataRetriever();</div><div class="line">        retriever.setDataSource(videoUri.getPath());</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Caused by: java.lang.IllegalArgumentException</div><div class="line">     at android.media.MediaMetadataRetriever.setDataSource(MediaMetadataRetriever.java:73)</div><div class="line">     at com.caiyi.youle.MainActivity.onActivityResult(MainActivity.java:433)</div><div class="line">     at android.app.Activity.dispatchActivityResult(Activity.java:6479)</div><div class="line">     at android.app.ActivityThread.deliverResults(ActivityThread.java:3915)</div><div class="line">     at android.app.ActivityThread.handleSendResult(ActivityThread.java:3962) </div><div class="line">     at android.app.ActivityThread.access$1500(ActivityThread.java:180) </div><div class="line">     at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1543) </div><div class="line">     at android.os.Handler.dispatchMessage(Handler.java:111) </div><div class="line">     at android.os.Looper.loop(Looper.java:207) </div><div class="line">     at android.app.ActivityThread.main(ActivityThread.java:5791) </div><div class="line">     at java.lang.reflect.Method.invoke(Native Method)</div></pre></td></tr></table></figure>
+<p>没有申请读写权限<br>WRITE_EXTERNAL_STORAGE</p>
 
           
         
@@ -664,7 +985,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/编程/android/android studio/res/drawable/drawable/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/10/android/android sdk/android.media.MediaMetadataRetriever/MediaMetadataRetriever/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -683,7 +1004,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/编程/android/android studio/res/drawable/drawable/" itemprop="url">android drawable resource</a></h1>
+                <a class="post-title-link" href="/2017/10/10/android/android sdk/android.media.MediaMetadataRetriever/MediaMetadataRetriever/" itemprop="url">MediaMetadataRetriever</a></h1>
         
 
         <div class="post-meta">
@@ -695,8 +1016,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T12:14:51+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T15:15:50+08:00">
+                2017-10-10
               </time>
             
 
@@ -740,8 +1061,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
-                    <span itemprop="name">android studio</span>
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
                   </a>
                 </span>
 
@@ -751,19 +1072,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
-                    <span itemprop="name">res</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/drawable/" itemprop="url" rel="index">
-                    <span itemprop="name">drawable</span>
+                  <a href="/categories/编程/android/android-sdk/android-media/" itemprop="url" rel="index">
+                    <span itemprop="name">android.media</span>
                   </a>
                 </span>
 
@@ -801,24 +1111,9 @@
       
         
           
-            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html" target="_blank" rel="external">可绘制对象资源</a><br>可绘制对象资源是一般概念，是指可在屏幕上绘制的图形，以及可以使用 getDrawable(int) 等 API 检索或者应用到具有 android:drawable 和 android:icon 等属性的其他 XML 资源的图形。</p>
-<h4 id="多种不同类型的可绘制对象"><a href="#多种不同类型的可绘制对象" class="headerlink" title="多种不同类型的可绘制对象"></a>多种不同类型的可绘制对象</h4><ol>
-<li>位图文件<br>位图图形文件（.png、.jpg 或 .gif）。创建 BitmapDrawable。</li>
-<li>九宫格文件<br>具有可拉伸区域的 PNG 文件，允许根据内容调整图像大小 (.9.png)。创建 NinePatchDrawable。</li>
-<li>图层列表<br>管理其他可绘制对象阵列的可绘制对象。它们按阵列顺序绘制，因此索引最大的元素绘制在顶部。创建 LayerDrawable。</li>
-<li>状态列表<br>此 XML 文件为不同状态引用不同位图图形（例如，按下按钮时使用不同的图像）。创建 StateListDrawable。</li>
-<li>级别列表<br>此 XML 文件用于定义管理大量备选可绘制对象的可绘制对象，每个可绘制对象都分配有最大的备选数量。创建 LevelListDrawable。</li>
-<li>转换可绘制对象<br>此 XML 文件用于定义可在两种可绘制对象资源之间交错淡出的可绘制对象。创建 TransitionDrawable。</li>
-<li>插入可绘制对象<br>此 XML 文件用于定义以指定距离插入其他可绘制对象的可绘制对象。当视图需要小于视图实际边界的背景可绘制对象时，此类可绘制对象很有用。</li>
-<li>裁剪可绘制对象<br>此 XML 文件用于定义对其他可绘制对象进行裁剪（根据其当前级别值）的可绘制对象。创建 ClipDrawable。</li>
-<li>缩放可绘制对象<br>此 XML 文件用于定义更改其他可绘制对象大小（根据其当前级别值）的可绘制对象。创建 ScaleDrawable</li>
-<li>形状可绘制对象<br>此 XML 文件用于定义几何形状（包括颜色和渐变）。创建 ShapeDrawable。</li>
-</ol>
-<p>另请参阅动画资源文档，了解如何创建 AnimationDrawable。</p>
-<blockquote>
-<p>注：颜色资源也可用作 XML 中的可绘制对象。例如，在创建状态列表可绘制对象时，可以引用 android:drawable 属性的颜色资源 (android:drawable=”@color/green”)。</p>
-</blockquote>
-
+            <p><a href="https://developer.android.com/reference/android/media/MediaMetadataRetriever.html" target="_blank" rel="external">MediaMetadataRetriever</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Call it when one is done with the object. This method releases the memory</span></div><div class="line"><span class="comment"> * allocated internally.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure></p>
+<p>常量<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * Do not change these metadata key values without updating their</span></div><div class="line"><span class="comment"> * counterparts in include/media/mediametadataretriever.h!</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the numeric string describing the</span></div><div class="line"><span class="comment"> * order of the audio data source on its original recording.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_CD_TRACK_NUMBER = <span class="number">0</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information about the album title</span></div><div class="line"><span class="comment"> * of the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_ALBUM           = <span class="number">1</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information about the artist of</span></div><div class="line"><span class="comment"> * the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_ARTIST          = <span class="number">2</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information about the author of</span></div><div class="line"><span class="comment"> * the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_AUTHOR          = <span class="number">3</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information about the composer of</span></div><div class="line"><span class="comment"> * the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_COMPOSER        = <span class="number">4</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the date when the data source was created</span></div><div class="line"><span class="comment"> * or modified.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_DATE            = <span class="number">5</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the content type or genre of the data</span></div><div class="line"><span class="comment"> * source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_GENRE           = <span class="number">6</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the data source title.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_TITLE           = <span class="number">7</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the year when the data source was created</span></div><div class="line"><span class="comment"> * or modified.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_YEAR            = <span class="number">8</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the playback duration of the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_DURATION        = <span class="number">9</span>; 返回的值是 毫秒</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the number of tracks, such as audio, video,</span></div><div class="line"><span class="comment"> * text, in the data source, such as a mp4 or 3gpp file.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_NUM_TRACKS      = <span class="number">10</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information of the writer (such as</span></div><div class="line"><span class="comment"> * lyricist) of the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_WRITER          = <span class="number">11</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the mime type of the data source. Some</span></div><div class="line"><span class="comment"> * example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb",</span></div><div class="line"><span class="comment"> * etc.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_MIMETYPE        = <span class="number">12</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the information about the performers or</span></div><div class="line"><span class="comment"> * artist associated with the data source.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_ALBUMARTIST     = <span class="number">13</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the numberic string that describes which</span></div><div class="line"><span class="comment"> * part of a set the audio data source comes from.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_DISC_NUMBER     = <span class="number">14</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * The metadata key to retrieve the music album compilation status.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_COMPILATION     = <span class="number">15</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If this key exists the media contains audio content.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_HAS_AUDIO       = <span class="number">16</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If this key exists the media contains video content.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_HAS_VIDEO       = <span class="number">17</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If the media contains video, this key retrieves its width.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_VIDEO_WIDTH     = <span class="number">18</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If the media contains video, this key retrieves its height.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_VIDEO_HEIGHT    = <span class="number">19</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This key retrieves the average bitrate (in bits/sec), if available.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_BITRATE         = <span class="number">20</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This key retrieves the language code of text tracks, if available.</span></div><div class="line"><span class="comment"> * If multiple text tracks present, the return value will look like:</span></div><div class="line"><span class="comment"> * "eng:chi"</span></div><div class="line"><span class="comment"> * <span class="doctag">@hide</span></span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_TIMED_TEXT_LANGUAGES      = <span class="number">21</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If this key exists the media is drm-protected.</span></div><div class="line"><span class="comment"> * <span class="doctag">@hide</span></span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_IS_DRM          = <span class="number">22</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This key retrieves the location information, if available.</span></div><div class="line"><span class="comment"> * The location should be specified according to ISO-6709 standard, under</span></div><div class="line"><span class="comment"> * a mp4/3gp box "<span class="doctag">@xyz</span>". Location with longitude of -90 degrees and latitude</span></div><div class="line"><span class="comment"> * of 180 degrees will be retrieved as "-90.0000+180.0000", for instance.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_LOCATION        = <span class="number">23</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This key retrieves the video rotation angle in degrees, if available.</span></div><div class="line"><span class="comment"> * The video rotation angle may be 0, 90, 180, or 270 degrees.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_VIDEO_ROTATION = <span class="number">24</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This key retrieves the original capture framerate, if it's</span></div><div class="line"><span class="comment"> * available. The capture framerate will be a floating point</span></div><div class="line"><span class="comment"> * number.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> METADATA_KEY_CAPTURE_FRAMERATE = <span class="number">25</span>;</div><div class="line"><span class="comment">// Add more here...</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);</div></pre></td></tr></table></figure>
           
         
       
@@ -866,7 +1161,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/编程/android/android studio/res/drawable/drawable-xml-selector/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/09/android/android sdk/android.content.Intent/ACTION_PICK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -885,7 +1180,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/28/编程/android/android studio/res/drawable/drawable-xml-selector/" itemprop="url">android drawable resource selector</a></h1>
+                <a class="post-title-link" href="/2017/10/09/android/android sdk/android.content.Intent/ACTION_PICK/" itemprop="url">ACTION_PICK</a></h1>
         
 
         <div class="post-meta">
@@ -897,8 +1192,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T11:55:50+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T13:59:03+08:00">
+                2017-10-09
               </time>
             
 
@@ -942,8 +1237,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
-                    <span itemprop="name">android studio</span>
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
                   </a>
                 </span>
 
@@ -953,19 +1248,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
-                    <span itemprop="name">res</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/drawable/" itemprop="url" rel="index">
-                    <span itemprop="name">drawable</span>
+                  <a href="/categories/编程/android/android-sdk/android-content-Intent/" itemprop="url" rel="index">
+                    <span itemprop="name">android.content.Intent</span>
                   </a>
                 </span>
 
@@ -1003,13 +1287,10 @@
       
         
           
-            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#StateList" target="_blank" rel="external">状态列表</a><br>此 XML 文件为不同状态引用不同位图图形（例如，按下按钮时使用不同的图像）。创建 StateListDrawable。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:constantSize=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">    android:dither=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">    android:variablePadding=[&quot;true&quot; | &quot;false&quot;] &gt;</div><div class="line">    &lt;item</div><div class="line">        android:drawable=&quot;@[package:]drawable/drawable_resource&quot;</div><div class="line">        android:state_pressed=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_focused=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_hovered=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_selected=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checkable=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checked=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_enabled=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_activated=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_window_focused=[&quot;true&quot; | &quot;false&quot;] /&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item android:state_pressed=&quot;true&quot;</div><div class="line">          android:drawable=&quot;@drawable/button_pressed&quot; /&gt; &lt;!-- pressed --&gt;</div><div class="line">    &lt;item android:state_focused=&quot;true&quot;</div><div class="line">          android:drawable=&quot;@drawable/button_focused&quot; /&gt; &lt;!-- focused --&gt;</div><div class="line">    &lt;item android:state_hovered=&quot;true&quot;</div><div class="line">          android:drawable=&quot;@drawable/button_focused&quot; /&gt; &lt;!-- hovered --&gt;</div><div class="line">    &lt;item android:drawable=&quot;@drawable/button_normal&quot; /&gt; &lt;!-- default --&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Button</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:background=&quot;@drawable/button&quot; /&gt;</div></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/7803430/how-to-change-background-image-of-button-when-clicked-focused" target="_blank" rel="external">change-background-image-of-button-when-clicked-focused</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">&lt;item android:state_focused=&quot;true&quot; android:drawable=&quot;@drawable/your_imagename_while_focused&quot;/&gt;</div><div class="line">&lt;item android:state_pressed=&quot;true&quot; android:drawable=&quot;@drawable/your_imagename_while_pressed&quot; /&gt;</div><div class="line">&lt;item android:drawable=&quot;@drawable/image_name_while_notpressed&quot; /&gt;  //means normal</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">&lt;item android:drawable=&quot;@drawable/ic_fair_off&quot; /&gt;</div><div class="line">&lt;item android:state_pressed=&quot;true&quot; android:drawable=&quot;@drawable/ic_fair_off_selected&quot; /&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
-<p>This item is unreachable because a previous item (item #1) is a more general match than this one (Earlier item which masks item)</p>
-<h4 id="对比-color-state-list"><a href="#对比-color-state-list" class="headerlink" title="对比 color-state-list"></a>对比 color-state-list</h4>
+            <p>Meizu M1 E <code>i.setType(&quot;video/*&quot;);</code>只能选择图片，不能选择视频。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">private void startSelectVideoActivity() &#123;</div><div class="line">    Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);</div><div class="line">    i.setType(&quot;video/*&quot;);</div><div class="line">    startActivityForResult(i, REQUEST_CODE_SELECT_VIDEO);</div><div class="line">    overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">    super.onActivityResult(requestCode, resultCode, data);</div><div class="line">    if (requestCode == REQUEST_CODE_SELECT_VIDEO &amp;&amp; resultCode == RESULT_OK &amp;&amp; null != data) &#123;</div><div class="line">        Uri selectedVideo = data.getData();</div><div class="line">        String videoPath = null;</div><div class="line"></div><div class="line">        if (selectedVideo.getScheme().equalsIgnoreCase(&quot;file&quot;)) &#123;</div><div class="line">            videoPath = selectedVideo.getPath();</div><div class="line">        &#125; else &#123;</div><div class="line">            String[] filePathColumn = &#123;MediaStore.Video.Media.DATA, MediaStore.Video.Media.DURATION&#125;;</div><div class="line">            Cursor cursor = getContentResolver().query(selectedVideo,</div><div class="line">                    filePathColumn, null, null, null);</div><div class="line">            if (cursor != null &amp;&amp; cursor.moveToFirst()) &#123;</div><div class="line">                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);</div><div class="line">                videoPath = cursor.getString(columnIndex);</div><div class="line">                //duration = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION));</div><div class="line">                cursor.close();</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>返回的 data 是 uri，但是这个 uri 需要解析下(content:// file://)<br>选择一个视频文件，大部分手机返回的是 file:// 但是锤子手机返回的是 content://<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public static String getPath(Context context,Uri uri) &#123;</div><div class="line">    final boolean isKitKat = Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT;</div><div class="line">    if (isKitKat &amp;&amp; DocumentsContract.isDocumentUri(context, uri)) &#123;</div><div class="line">        if (isExternalStorageDocument(uri)) &#123;</div><div class="line">            final String docId = DocumentsContract.getDocumentId(uri);</div><div class="line">            final String[] split = docId.split(&quot;:&quot;);</div><div class="line">            final String type = split[0];</div><div class="line">            if (&quot;primary&quot;.equalsIgnoreCase(type)) &#123;</div><div class="line">                return Environment.getExternalStorageDirectory() + &quot;/&quot; + split[1];</div><div class="line">            &#125;</div><div class="line">        &#125; else if (isDownloadsDocument(uri)) &#123;</div><div class="line">            final String id = DocumentsContract.getDocumentId(uri);</div><div class="line">            final Uri contentUri = ContentUris.withAppendedId(Uri.parse(&quot;content://downloads/public_downloads&quot;), Long.valueOf(id));</div><div class="line">            return getDataColumn(context, contentUri, null, null);</div><div class="line">        &#125; else if (isMediaDocument(uri)) &#123;</div><div class="line">            final String docId = DocumentsContract.getDocumentId(uri);</div><div class="line">            final String[] split = docId.split(&quot;:&quot;);</div><div class="line">            final String type = split[0];</div><div class="line"></div><div class="line">            Uri contentUri = null;</div><div class="line">            if (&quot;image&quot;.equals(type)) &#123;</div><div class="line">                contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;</div><div class="line">            &#125; else if (&quot;video&quot;.equals(type)) &#123;</div><div class="line">                contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;</div><div class="line">            &#125; else if (&quot;audio&quot;.equals(type)) &#123;</div><div class="line">                contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            final String selection = &quot;_id=?&quot;;</div><div class="line">            final String[] selectionArgs = new String[]&#123;</div><div class="line">                    split[1]</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">            return getDataColumn(context, contentUri, selection, selectionArgs);</div><div class="line">        &#125;</div><div class="line">    &#125; else if (&quot;content&quot;.equalsIgnoreCase(uri.getScheme())) &#123;</div><div class="line">        return getDataColumn(context, uri, null, null);</div><div class="line">    &#125; else if (&quot;file&quot;.equalsIgnoreCase(uri.getScheme())) &#123;</div><div class="line">        return uri.getPath();</div><div class="line">    &#125;</div><div class="line">    return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -1057,7 +1338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/27/编程/android/3rdParty/lansosdk/lansosdk-api-ImagePadMix-getBlendBitmap-花屏/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/09/android/android sdk/android.provider/MediaStore/pick-file-from-system/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1076,7 +1357,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/27/编程/android/3rdParty/lansosdk/lansosdk-api-ImagePadMix-getBlendBitmap-花屏/" itemprop="url">ImagePadMix getBlendBitmap 在一些机器上 输出的BMP是花的</a></h1>
+                <a class="post-title-link" href="/2017/10/09/android/android sdk/android.provider/MediaStore/pick-file-from-system/" itemprop="url">pick-file-from-system</a></h1>
         
 
         <div class="post-meta">
@@ -1088,8 +1369,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T18:37:56+08:00">
-                2017-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T13:55:28+08:00">
+                2017-10-09
               </time>
             
 
@@ -1133,8 +1414,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/" itemprop="url" rel="index">
-                    <span itemprop="name">3rdParty</span>
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
                   </a>
                 </span>
 
@@ -1144,8 +1425,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/lansosdk/" itemprop="url" rel="index">
-                    <span itemprop="name">lansosdk</span>
+                  <a href="/categories/编程/android/android-sdk/android-provider/" itemprop="url" rel="index">
+                    <span itemprop="name">android.provider</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/android-provider/MediaStore/" itemprop="url" rel="index">
+                    <span itemprop="name">MediaStore</span>
                   </a>
                 </span>
 
@@ -1183,19 +1475,13 @@
       
         
           
-            <h4 id="情景-截取视频的封面时添加上效果视频的截图"><a href="#情景-截取视频的封面时添加上效果视频的截图" class="headerlink" title="情景 截取视频的封面时添加上效果视频的截图"></a>情景 截取视频的封面时添加上效果视频的截图</h4><p>代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">mixBmp</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPermission()) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    Bitmap mainJpg = BitmapFactory.decodeFile(<span class="string">"/sdcard/main.jpg"</span>);</div><div class="line">    Bitmap effectJpg = BitmapFactory.decodeFile(<span class="string">"/sdcard/effect.jpg"</span>);</div><div class="line">    ImagePadMix imagePadMix = <span class="keyword">new</span> ImagePadMix(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">if</span> (imagePadMix.prepare(mainJpg.getWidth(), mainJpg.getHeight())) &#123;</div><div class="line">        Bitmap resBmp = imagePadMix.getBlendBitmap(mainJpg, effectJpg);</div><div class="line">        imageView.setImageBitmap(resBmp);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            resBmp.compress(Bitmap.CompressFormat.JPEG, <span class="number">70</span>, <span class="keyword">new</span> FileOutputStream(<span class="string">"/sdcard/image-pad-mix.jpg"</span>));</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="/image/lansosdk-api-imagepadmix-getblendbitmap-main.jpg" alt="main.jpg"><br><img src="/image/lansosdk-api-imagepadmix-getblendbitmap-effect.jpg" alt="effect.jpg"><br><img src="/image/lansosdk-api-imagepadmix-getblendbitmap-mix-result.jpg" alt="mix-result"></p>
-<h4 id="出问题的手机列表"><a href="#出问题的手机列表" class="headerlink" title="出问题的手机列表"></a>出问题的手机列表</h4><ol>
-<li>HMD Global Oy TA-1000</li>
-<li>乐视 MAX</li>
+            <ol>
+<li>MediaStore.Video.Media.EXTERNAL_CONTENT_URI <strong><em>Uri</em></strong></li>
+<li>MediaStore.Video.Media.DATA <strong><em>String</em></strong></li>
+<li>MediaStore.Video.Media.DURATION <strong><em>String</em></strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">private void startSelectVideoActivity() &#123;</div><div class="line">    Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);</div><div class="line">    i.setType(&quot;video/*&quot;);</div><div class="line">    startActivityForResult(i, REQUEST_CODE_SELECT_VIDEO);</div><div class="line">    overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h4 id="没有问题的手机列表"><a href="#没有问题的手机列表" class="headerlink" title="没有问题的手机列表"></a>没有问题的手机列表</h4><ol>
-<li>Xiaomi Redmi Note 4</li>
-<li>Meizu M1 E</li>
-<li>OPPO A37m</li>
-</ol>
-<h4 id="真正的原因"><a href="#真正的原因" class="headerlink" title="真正的原因"></a>真正的原因</h4><p>1080 实际的图片高度是 1088<br>因为你发给我的图片, 高度不是32的倍数</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">    super.onActivityResult(requestCode, resultCode, data);</div><div class="line">    if (requestCode == REQUEST_CODE_SELECT_VIDEO &amp;&amp; resultCode == RESULT_OK &amp;&amp; null != data) &#123;</div><div class="line">        Uri selectedVideo = data.getData();</div><div class="line">        String videoPath = null;</div><div class="line"></div><div class="line">        if (selectedVideo.getScheme().equalsIgnoreCase(&quot;file&quot;)) &#123;</div><div class="line">            videoPath = selectedVideo.getPath();</div><div class="line">        &#125; else &#123;</div><div class="line">            String[] filePathColumn = &#123;MediaStore.Video.Media.DATA, MediaStore.Video.Media.DURATION&#125;;</div><div class="line">            Cursor cursor = getContentResolver().query(selectedVideo,</div><div class="line">                    filePathColumn, null, null, null);</div><div class="line">            if (cursor != null &amp;&amp; cursor.moveToFirst()) &#123;</div><div class="line">                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);</div><div class="line">                videoPath = cursor.getString(columnIndex);</div><div class="line">                //duration = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION));</div><div class="line">                cursor.close();</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -1243,7 +1529,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/27/编程/ffmpeg/command-options/ffmpeg-f-images-截图/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer-state diagram/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1262,7 +1548,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/27/编程/ffmpeg/command-options/ffmpeg-f-images-截图/" itemprop="url">ffmpeg 截图</a></h1>
+                <a class="post-title-link" href="/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer-state diagram/" itemprop="url">MediaPlayer-state diagram</a></h1>
         
 
         <div class="post-meta">
@@ -1274,161 +1560,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T18:22:19+08:00">
-                2017-09-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/ffmpeg/" itemprop="url" rel="index">
-                    <span itemprop="name">ffmpeg</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://gist.github.com/ameizi/9d5572a25063790db5fb" target="_blank" rel="external">ffmpeg视频合并、格式转换、截图</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/27/编程/android/android sdk/android.media.MediaPlayer/MediaPlayer.seekTo-error-Attempt to perform seekTo in wrong state/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/27/编程/android/android sdk/android.media.MediaPlayer/MediaPlayer.seekTo-error-Attempt to perform seekTo in wrong state/" itemprop="url">Attempt to perform seekTo in wrong state</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T13:23:08+08:00">
-                2017-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T19:29:50+08:00">
+                2017-09-30
               </time>
             
 
@@ -1522,12 +1655,7 @@
       
         
           
-            <h4 id="出错情景"><a href="#出错情景" class="headerlink" title="出错情景"></a>出错情景</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mediaPlayer.setOnPreparedListener(<span class="keyword">new</span> MediaPlayer.OnPreparedListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPrepared</span><span class="params">(MediaPlayer mp)</span> </span>&#123;</div><div class="line">        mediaPlayer.pause();</div><div class="line">        mediaPlayer.seekTo(<span class="number">10</span> * <span class="number">1000</span>); <span class="comment">// 如果只调用 seek 可正常播放</span></div><div class="line">        mainThreadHandler.sendEmptyMessage(MSG_CODE_PLAYER_PREPARED);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">09-27 13:19:14.361 21032-21032/com.lansoeditor.demo E/MediaPlayer: pause called in state 8</div><div class="line">09-27 13:19:14.361 21032-21032/com.lansoeditor.demo E/MediaPlayer: error (-38, 0)</div><div class="line">09-27 13:19:14.361 21032-21032/com.lansoeditor.demo E/MediaPlayer: Attempt to perform seekTo in wrong state: mPlayer=0xdccaf300, mCurrentState=0</div><div class="line">09-27 13:19:14.361 21032-21032/com.lansoeditor.demo E/MediaPlayer: error (-38, 0)</div><div class="line">09-27 13:19:14.448 21032-21032/com.lansoeditor.demo E/MediaPlayer: Attempt to perform seekTo in wrong state: mPlayer=0xdccaf300, mCurrentState=0</div><div class="line">09-27 13:19:14.448 21032-21032/com.lansoeditor.demo E/MediaPlayer: error (-38, 0)</div><div class="line">09-27 13:19:14.450 21032-21032/com.lansoeditor.demo E/MediaPlayer: start called in state 0</div><div class="line">09-27 13:19:14.450 21032-21032/com.lansoeditor.demo E/MediaPlayer: error (-38, 0)</div><div class="line">09-27 13:19:14.451 21032-21032/com.lansoeditor.demo E/MediaPlayer: Error (-38,0)</div><div class="line">09-27 13:19:14.452 21032-21032/com.lansoeditor.demo E/MediaPlayer: Error (-38,0)</div><div class="line">09-27 13:19:14.467 21032-21032/com.lansoeditor.demo E/MediaPlayer: Error (-38,0)</div><div class="line">09-27 13:19:14.467 21032-21032/com.lansoeditor.demo E/MediaPlayer: Error (-38,0)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果出现这个错误再调用 mediaPlayer.start() ，会立即产生 <code>MediaPlayer.OnCompletionListener</code> 结束事件</p>
-</blockquote>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://stackoverflow.com/questions/15898089/android-mediaplyer-seekto-inside-onprepared" target="_blank" rel="external">android-mediaplyer-seekto-inside-onprepared</a><br><a href="https://stackoverflow.com/questions/11733810/mediaplayer-error-38-0" target="_blank" rel="external">MediaPlayer error (-38, 0)</a></p>
+            <p><img src="/image/mediaplayer_state_diagram.gif" alt="state diagram"></p>
 
           
         
@@ -1576,7 +1704,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/27/编程/android/android studio/res/string/android-res-string-Formatting and Styling/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1595,7 +1723,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/27/编程/android/android studio/res/string/android-res-string-Formatting and Styling/" itemprop="url">Android 字符串资源 Formatting and Styling</a></h1>
+                <a class="post-title-link" href="/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer/" itemprop="url">MediaPlayer</a></h1>
         
 
         <div class="post-meta">
@@ -1607,8 +1735,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T11:48:26+08:00">
-                2017-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T19:21:13+08:00">
+                2017-09-30
               </time>
             
 
@@ -1652,30 +1780,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
-                    <span itemprop="name">android studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
-                    <span itemprop="name">res</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/res/string/" itemprop="url" rel="index">
-                    <span itemprop="name">string</span>
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
                   </a>
                 </span>
 
@@ -1713,10 +1819,7 @@
       
         
           
-            <h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><p><a href="https://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling" target="_blank" rel="external">Formatting and Styling</a></p>
-<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;good_example&quot;&gt;This\&apos;ll work&lt;/string&gt;</div><div class="line">&lt;string name=&quot;good_example_2&quot;&gt;&quot;This&apos;ll also work&quot;&lt;/string&gt;</div><div class="line">&lt;string name=&quot;bad_example&quot;&gt;This doesn&apos;t work&lt;/string&gt;</div><div class="line">    &lt;!-- Causes a compile error --&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;good_example&quot;&gt;This is a \&quot;good string\&quot;.&lt;/string&gt;</div><div class="line">&lt;string name=&quot;bad_example&quot;&gt;This is a &quot;bad string&quot;.&lt;/string&gt;</div><div class="line">    &lt;!-- Quotes are stripped; displays as: This is a bad string. --&gt;</div><div class="line">&lt;string name=&quot;bad_example_2&quot;&gt;&apos;This is another &quot;bad string&quot;.&apos;&lt;/string&gt;</div><div class="line">    &lt;!-- Causes a compile error --&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;welcome_messages&quot;&gt;Hello, %1$s! You have %2$d new messages.&lt;/string&gt;</div><div class="line"></div><div class="line">Resources res = getResources();</div><div class="line">String text = res.getString(R.string.welcome_messages, username, mailCount);</div></pre></td></tr></table></figure>
+            <p><a href="https://developer.android.com/guide/topics/media/mediaplayer.html?hl=zh-cn" target="_blank" rel="external">MediaPlayer</a><br><a href="https://developer.android.com/reference/android/media/MediaPlayer.html?hl=zh-cn" target="_blank" rel="external">android.media.MediaPlayer</a></p>
 
           
         
@@ -1765,7 +1868,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/27/编程/android/3rdParty/lansosdk/lansosdk-api-TwoVideoLayer-error-rotate/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/ffmpeg/command-options/ffmpeg-f-lavfi-create-black-video/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1784,7 +1887,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/27/编程/android/3rdParty/lansosdk/lansosdk-api-TwoVideoLayer-error-rotate/" itemprop="url">主视频旋转 90 度后 附加视频方向不一致了</a></h1>
+                <a class="post-title-link" href="/2017/09/30/ffmpeg/command-options/ffmpeg-f-lavfi-create-black-video/" itemprop="url">create black video</a></h1>
         
 
         <div class="post-meta">
@@ -1796,8 +1899,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T10:29:21+08:00">
-                2017-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T18:26:46+08:00">
+                2017-09-30
               </time>
             
 
@@ -1830,30 +1933,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/" itemprop="url" rel="index">
-                    <span itemprop="name">3rdParty</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/lansosdk/" itemprop="url" rel="index">
-                    <span itemprop="name">lansosdk</span>
+                  <a href="/categories/编程/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
                   </a>
                 </span>
 
@@ -1891,182 +1972,7 @@
       
         
           
-            <h4 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h4><p>主视频： 1920x1080 rotation 90度<br>附加视频: 540x960 rotation 0度</p>
-<ol>
-<li>使用 MediaPlayer + DrawPadView 实现播放，</li>
-<li>使用 TwoVideoLayer 实现同时播放主视频和附加视频<br><code>drawPadView.addTwoVideoLayer(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());</code></li>
-</ol>
-<p>结果如下图：<br><img src="/image/lansosdk-api-TwoVideoLayer-error-rotate.png" alt="TwoVideoLayer-error-rotate"></p>
-<blockquote>
-<p>附加视频（蝴蝶）横着播放了</p>
-</blockquote>
-<h4 id="暂时修改方法"><a href="#暂时修改方法" class="headerlink" title="暂时修改方法"></a>暂时修改方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEffect</span><span class="params">(String effectPath)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (effectPlayer == <span class="keyword">null</span>) &#123;</div><div class="line">        effectPlayer = <span class="keyword">new</span> MediaPlayer();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        effectPlayer.stop();</div><div class="line">        effectPlayer.reset();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        effectPlayer.setDataSource(effectPath);</div><div class="line">        twoVideoLayer.setDisplayTexture2(<span class="keyword">true</span>);</div><div class="line">        <span class="comment">//当前没有完全解决, 只是时间关系, 规避了一下, 可以通过这样来矫正下角度</span></div><div class="line">        <span class="comment">//更新了 D:\work\lanso.demo\app\libs\lansongeditor_hx.jar</span></div><div class="line">        <span class="keyword">if</span> (mainVideoInfo.vRotateAngle == <span class="number">90</span>) &#123;</div><div class="line">            twoVideoLayer.setSecondVideoMirror(Rotation.ROTATION_270, <span class="keyword">true</span>, <span class="keyword">false</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mainVideoInfo.vRotateAngle == <span class="number">270</span>) &#123;</div><div class="line">            twoVideoLayer.setSecondVideoMirror(Rotation.ROTATION_90, <span class="keyword">true</span>, <span class="keyword">false</span>);</div><div class="line">        &#125;</div><div class="line">        effectPlayer.setSurface(<span class="keyword">new</span> Surface(twoVideoLayer.getVideoTexture2()));</div><div class="line">        effectPlayer.prepare();</div><div class="line">        effectPlayer.start();</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        Log.e(TAG, <span class="string">"播放特效失败"</span>, e);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/26/网站/HEXO/hexo-install-and-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/26/网站/HEXO/hexo-install-and-command/" itemprop="url">HEXO 安装、命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T00:02:01+08:00">
-                2017-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站/" itemprop="url" rel="index">
-                    <span itemprop="name">网站</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
-<li>下载安装 nodejs<br><a href="https://nodejs.org/en/" target="_blank" rel="external">下载地址</a></li>
-<li>创建一个文件夹，hexo.site，用于存放网站代码</li>
-<li>安装 hexo 相关的 npm 包<br>在命令行中，CD到 hexo.site 文件夹，执行下面的安装命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div><div class="line">npm install hexo-cli --save</div><div class="line">npm install hexo-server --save</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p><code>npm install hexo -g</code> 在 c: 下安装后，到 d: 运行时，找不到命令 hexo</p>
-</blockquote>
-<h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><ol>
-<li><p>hexo d 发布时，把 hexo.site 文件夹发布到网站了<br>解决办法：删除 hexo.site/.deploy_git 目录，重新发布。</p>
-</li>
-<li><p>hexo.site/.deploy_git 换电脑后，会重新生成，并强制推送到网站<br>解决办法：把这个目录，加入到 hexo.site 仓库的子模块<br><a href="../../../../25/工程管理/git/git-cmd-submodule/">参考 git submodule add</a></p>
-</li>
-</ol>
+            <p><a href="https://ffmpeg.org/pipermail/ffmpeg-user/2015-July/027771.html" target="_blank" rel="external">how to create black video and one slient piece of    audio</a><br>ffmpeg.exe -f lavfi -i color=s=hd720:d=5 -f lavfi -i anullsrc -strict -2 -shortest out.mp4</p>
 
           
         
@@ -2106,7 +2012,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2151,7 +2057,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2162,7 +2068,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2173,7 +2079,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2215,7 +2121,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

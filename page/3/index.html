@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/工程管理/git/git-cmd-submodule/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer.start-error-start called in state 2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/25/工程管理/git/git-cmd-submodule/" itemprop="url">git submodule</a></h1>
+                <a class="post-title-link" href="/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer.start-error-start called in state 2/" itemprop="url">android MediaPlayer start called in state 2</a></h1>
         
 
         <div class="post-meta">
@@ -309,186 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T23:00:30+08:00">
-                2017-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程管理/" itemprop="url" rel="index">
-                    <span itemprop="name">工程管理</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程管理/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>子模块允许你将一个 Git 仓库作为另一个 Git 仓库的子目录。<br>它能让你将另一个仓库克隆到自己的项目中，同时还保持提交的独立</p>
-<h4 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">usage: git submodule [--quiet] add [-b &lt;branch&gt;] [-f|--force] [--name &lt;name&gt;] [--reference &lt;repository&gt;] [--] &lt;repository&gt; [&lt;path&gt;]</div><div class="line">   or: git submodule [--quiet] status [--cached] [--recursive] [--] [&lt;path&gt;...]</div><div class="line">   or: git submodule [--quiet] init [--] [&lt;path&gt;...]</div><div class="line">   or: git submodule [--quiet] deinit [-f|--force] (--all| [--] &lt;path&gt;...)</div><div class="line">   or: git submodule [--quiet] update [--init] [--remote] [-N|--no-fetch] [-f|--force] [--checkout|--merge|--rebase] [--[no-]recommend-shallow] [--reference &lt;repository&gt;] [--recursive] [--] [&lt;path&gt;...]</div><div class="line">   or: git submodule [--quiet] summary [--cached|--files] [--summary-limit &lt;n&gt;] [commit] [--] [&lt;path&gt;...]</div><div class="line">   or: git submodule [--quiet] foreach [--recursive] &lt;command&gt;</div><div class="line">   or: git submodule [--quiet] sync [--recursive] [--] [&lt;path&gt;...]</div><div class="line">   or: git submodule [--quiet] absorbgitdirs [--] [&lt;path&gt;...]</div></pre></td></tr></table></figure>
-<h4 id="创建的配置文件"><a href="#创建的配置文件" class="headerlink" title="创建的配置文件"></a>创建的配置文件</h4><ul>
-<li>.gitmodules<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[submodule &quot;themes/next&quot;]</div><div class="line">	path = themes/next</div><div class="line">	url = git@github.com:VideoTec/hexo-theme-next.git</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>子模块文件夹 虽然是工作目录中的一个子目录，但 Git 还是会将它视作一个子模块。<br>  当你不在那个目录中时，Git 并不会跟踪它的内容， 而是将它看作该仓库中的<strong><em>一个特殊提交</em></strong>。</p>
-</blockquote>
-<h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" target="_blank" rel="external">Git 工具 - 子模块</a></p>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><ul>
-<li><p>增加子模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git submodule add https://github.com/chaconinc/DbConnector</div><div class="line">git submodule add https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除子模块<br><a href="https://stackoverflow.com/questions/29850029/what-is-the-current-way-to-remove-a-git-submodule" target="_blank" rel="external">way-to-remove-a-git-submodule</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git submodule deinit &lt;asubmodule&gt;    </div><div class="line">git rm &lt;asubmodule&gt;</div><div class="line"># Note: asubmodule (no trailing slash)</div><div class="line"># or, if you want to leave it in your working tree</div><div class="line">git rm --cached &lt;asubmodule&gt;</div><div class="line">rm -rf .git/modules/&lt;asubmodule&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>克隆仓库后，第一次拉取子模块的，需要初始化<br><code>git submodule init</code></p>
-</li>
-<li>列出所有子模块<br><code>git submodule status</code></li>
-<li>拉取子模块<br><code>git submodule update</code></li>
-</ul>
-<blockquote>
-<p>拉取子模块时的错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ git submodule update .deploy_git</div><div class="line">&gt; Fetched in submodule path &apos;.deploy_git&apos;, but it did not contain d0146b46d71549946f37804f694af92b9db0a9e7. Direct fetching of that commit failed.</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>解决办法，cd，到子模块目录，使用 git status 查看状态，进行处理。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/编程/android/exception/java.lang.IllegalStateException-MediaPlayer.setDataSource/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/25/编程/android/exception/java.lang.IllegalStateException-MediaPlayer.setDataSource/" itemprop="url">java.lang.IllegalStateException MediaPlayer setDataSource</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T19:49:44+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T16:41:56+08:00">
+                2017-09-30
               </time>
             
 
@@ -532,8 +354,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/exception/" itemprop="url" rel="index">
-                    <span itemprop="name">exception</span>
+                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
+                    <span itemprop="name">android sdk</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-sdk/android-media-MediaPlayer/" itemprop="url" rel="index">
+                    <span itemprop="name">android.media.MediaPlayer</span>
                   </a>
                 </span>
 
@@ -571,9 +404,9 @@
       
         
           
-            <p>代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEffect</span><span class="params">(String effectPath)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (effectPlayer == <span class="keyword">null</span>) &#123;</div><div class="line">        effectPlayer = <span class="keyword">new</span> MediaPlayer();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        effectPlayer.stop(); <span class="comment">//问题出在这里，stop 进入 stopped 状态，需要再调用 reset 才能进入 Idle 状态</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        effectPlayer.setDataSource(effectPath);</div><div class="line">        twoVideoLayer.setDisplayTexture2(<span class="keyword">true</span>);</div><div class="line">        effectPlayer.setSurface(<span class="keyword">new</span> Surface(twoVideoLayer.getVideoTexture2()));</div><div class="line">        effectPlayer.prepare();</div><div class="line">        effectPlayer.start();</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        Log.e(TAG, <span class="string">"播放特效失败"</span>, e);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>异常信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalStateException</div><div class="line">   at android.media.MediaPlayer._setDataSource(Native Method)</div><div class="line">   at android.media.MediaPlayer.setDataSource(MediaPlayer.java:1154)</div><div class="line">   at android.media.MediaPlayer.setDataSource(MediaPlayer.java:1139)</div><div class="line">   at android.media.MediaPlayer.setDataSource(MediaPlayer.java:1118)</div><div class="line">   at android.media.MediaPlayer.setDataSource(MediaPlayer.java:1067)</div><div class="line">   at com.lansosdk.videoeditor.LansoPlayer.addEffect(LansoPlayer.java:88)</div><div class="line">   at work.wangxiang.lansodemo.PlayerActivity.onEffect(PlayerActivity.java:50)</div><div class="line">   at java.lang.reflect.Method.invoke(Native Method)</div></pre></td></tr></table></figure></p>
-<p>Idle 状态下，才可调用 setDataSource 方法。<br>调用 reset，才会进入 Idle 状态。<br><img src="/image/mediaplayer_state_diagram.gif" alt="mediaplayer status machine"></p>
+            <h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><figure class="highlight plain"><figcaption><span>void previewVideo() &#123;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">    if (segmentArray.size() &gt; 0 &amp;&amp; surfaceCreated) &#123;</div><div class="line">        try &#123;</div><div class="line">            if (mPlayer == null) &#123;</div><div class="line">                mPlayer = new MediaPlayer();</div><div class="line">            &#125;</div><div class="line">            currentPreviewIndex = 0;</div><div class="line">            mPlayer.setDataSource(segmentArray.get(0));</div><div class="line">            mPlayer.setSurface(dataBinding.previewSurfaceView.getHolder().getSurface());</div><div class="line">            mPlayer.setOnCompletionListener(mediaPlayerComplete);</div><div class="line">            mPlayer.start();</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            releaseMediaPlayer();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">09-30 16:40:22.217 1836-1836/com.caiyi.youle E/MediaPlayer: start called in state 2</div><div class="line">09-30 16:40:22.217 1836-1836/com.caiyi.youle E/MediaPlayer: error (-38, 0)</div><div class="line">09-30 16:40:22.349 1836-1836/com.caiyi.youle E/MediaPlayer: Error (-38,0)</div></pre></td></tr></table></figure>
+<p>原因：没有调用 prepare</p>
 
           
         
@@ -622,7 +455,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/编程/android/exception/java.lang.IllegalStateException-setSupportActionBar/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android studio/res/layout/layout-textview-shadow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -641,7 +474,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/25/编程/android/exception/java.lang.IllegalStateException-setSupportActionBar/" itemprop="url">java.lang.IllegalStateException setSupportActionBar</a></h1>
+                <a class="post-title-link" href="/2017/09/30/android/android studio/res/layout/layout-textview-shadow/" itemprop="url">android layout textview shadow</a></h1>
         
 
         <div class="post-meta">
@@ -653,176 +486,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T16:51:37+08:00">
-                2017-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/exception/" itemprop="url" rel="index">
-                    <span itemprop="name">exception</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_player);</div><div class="line">    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">    setSupportActionBar(toolbar);</div></pre></td></tr></table></figure></p>
-<p>异常信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.</div><div class="line">     at android.support.v7.app.AppCompatDelegateImplV9.setSupportActionBar(AppCompatDelegateImplV9.java:204)</div><div class="line">     at android.support.v7.app.AppCompatActivity.setSupportActionBar(AppCompatActivity.java:129)</div><div class="line">     at work.wangxiang.lansodemo.PlayerActivity.onCreate(PlayerActivity.java:20)</div><div class="line">     at android.app.Activity.performCreate(Activity.java:6288)</div><div class="line">     at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1113)</div></pre></td></tr></table></figure></p>
-<p>清单文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=&quot;.PlayerActivity&quot;</div><div class="line">    android:label=&quot;@string/title_activity_player&quot;</div><div class="line">    android:theme=&quot;@style/AppTheme&quot;&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
-<p>样式代码 <code>@style/AppTheme</code><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</div><div class="line">    &lt;!-- Customize your theme here. --&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-<p>解决方法，修改成下面的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppTheme.NoActionBar&quot; parent=&quot;Theme.AppCompat&quot;&gt;</div><div class="line">    &lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/编程/android/android studio/res/layout/layout-preview-render-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/25/编程/android/android studio/res/layout/layout-preview-render-error/" itemprop="url">Android Studio 布局预览时 渲染错误</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T15:45:32+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T13:28:59+08:00">
+                2017-09-30
               </time>
             
 
@@ -927,27 +592,17 @@
       
         
           
-            <h4 id="错误-Missing-classes"><a href="#错误-Missing-classes" class="headerlink" title="错误 Missing classes"></a>错误 Missing classes</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Missing classes</div><div class="line"></div><div class="line">The following classes could not be found:</div><div class="line">- com.caiyi.youle.camera.ui.CameraFilterHorizontalScrollView (Fix Build Path, Edit XML, Create Class)</div><div class="line">- com.caiyi.youle.camera.ui.FocusImageView (Fix Build Path, Edit XML, Create Class)</div><div class="line">- com.caiyi.youle.camera.ui.VideoProgressView (Fix Build Path, Edit XML, Create Class)</div><div class="line"> Tip: Try to build the project.   Tip: Try to refresh the layout</div></pre></td></tr></table></figure>
-<p>解决方法：去掉布局文件中，不存在的 viewModel 对象的引用。重新 build，就可以了。</p>
-<h4 id="error-Error-Dimension-types-not-allowed-at-‘shadowDx’-with-value-‘5dp’"><a href="#error-Error-Dimension-types-not-allowed-at-‘shadowDx’-with-value-‘5dp’" class="headerlink" title="error: Error: Dimension types not allowed (at ‘shadowDx’ with value ‘5dp’"></a>error: Error: Dimension types not allowed (at ‘shadowDx’ with value ‘5dp’</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;TextView</div><div class="line">    android:id=&quot;@+id/iv_filter&quot;</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:drawableTop=&quot;@drawable/ic_filter_selector&quot;</div><div class="line">    android:gravity=&quot;center&quot;</div><div class="line">    android:padding=&quot;8dp&quot;</div><div class="line">    android:text=&quot;@string/filter&quot;</div><div class="line">    android:textSize=&quot;@dimen/font_small_size&quot;</div><div class="line">    android:shadowColor=&quot;@color/black&quot;</div><div class="line">    android:shadowDx=&quot;5dp&quot;</div><div class="line">    android:shadowDy=&quot;5dp&quot;</div><div class="line">    android:shadowRadius=&quot;10dp&quot;/&gt;</div></pre></td></tr></table></figure>
-<p>改了只后，还出错，而且，XML中的值被改回去。仔细看错误发现，错误指向的XML不是原始文件：<br><code>D:\\work\\videoshare_android.git\\app\\build\\intermediates\\data-binding-layout-out\\_360\\debug\\layout\\activity_camera_record_video_layout.xml</code></p>
-<h4 id="错误-Using-the-design-library-requires-using-Theme-AppCompat-or-a-descendant"><a href="#错误-Using-the-design-library-requires-using-Theme-AppCompat-or-a-descendant" class="headerlink" title="错误 Using the design library requires using Theme.AppCompat or a descendant"></a>错误 Using the design library requires using Theme.AppCompat or a descendant</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">Using the design library requires using Theme.AppCompat or a descendant</div><div class="line"></div><div class="line">Failed to instantiate one or more classes</div><div class="line">    android.support.design.widget.CoordinatorLayout</div><div class="line">    android.support.design.widget.AppBarLayout</div><div class="line">    android.support.design.widget.FloatingActionButton</div><div class="line"></div><div class="line">one or more layouts are missing the layout_width or layout_height attributes</div><div class="line"></div><div class="line">java.lang.IllegalArgumentException: You need to use a Theme.AppCompat theme (or descendant) with the design library.</div><div class="line">	at android.support.design.widget.ThemeUtils.checkAppCompatTheme(ThemeUtils.java:36)</div><div class="line">	at android.support.design.widget.CoordinatorLayout.&lt;init&gt;(CoordinatorLayout.java:205)</div><div class="line">	at android.support.design.widget.CoordinatorLayout.&lt;init&gt;(CoordinatorLayout.java:199)</div><div class="line">	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)</div><div class="line">	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)</div><div class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)</div><div class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)</div><div class="line">	at org.jetbrains.android.uipreview.ViewLoader.createNewInstance(ViewLoader.java:475)</div><div class="line">	at org.jetbrains.android.uipreview.ViewLoader.loadClass(ViewLoader.java:262)</div><div class="line">	at org.jetbrains.android.uipreview.ViewLoader.loadView(ViewLoader.java:220)</div><div class="line">	at com.android.tools.idea.rendering.LayoutlibCallbackImpl.loadView(LayoutlibCallbackImpl.java:186)</div><div class="line">	at android.view.BridgeInflater.loadCustomView(BridgeInflater.java:334)</div><div class="line">	at android.view.BridgeInflater.loadCustomView(BridgeInflater.java:345)</div><div class="line">	at android.view.BridgeInflater.createViewFromTag(BridgeInflater.java:245)</div><div class="line">	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:727)</div><div class="line">	at android.view.LayoutInflater.inflate(LayoutInflater.java:495)</div><div class="line">	at android.view.LayoutInflater.inflate(LayoutInflater.java:397)</div><div class="line">	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:324)</div><div class="line">	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:429)</div><div class="line">	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:368)</div><div class="line">	at com.android.tools.idea.rendering.RenderTask$2.compute(RenderTask.java:567)</div><div class="line">	at com.android.tools.idea.rendering.RenderTask$2.compute(RenderTask.java:549)</div><div class="line">	at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:863)</div><div class="line">	at com.android.tools.idea.rendering.RenderTask.createRenderSession(RenderTask.java:549)</div><div class="line">	at com.android.tools.idea.rendering.RenderTask.lambda$inflate$1(RenderTask.java:680)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</div><div class="line">	at java.lang.Thread.run(Thread.java:745)</div></pre></td></tr></table></figure>
-<p>配置清单<br><strong><em>解决方法</em></strong><br>删除 PlayerActivity 的 <code>android:theme=&quot;@style/AppTheme.NoActionBar&quot;</code><br>即使用 <code>&lt;application&gt;</code> 指定的样式 <code>android:theme=&quot;@style/AppTheme&quot;</code><br>或者给 <code>@style/AppTheme.NoActionBar</code> 增加父样式 <code>Theme.AppCompat</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;application</div><div class="line">    android:allowBackup=&quot;true&quot;</div><div class="line">    android:icon=&quot;@mipmap/ic_launcher&quot;</div><div class="line">    android:label=&quot;@string/app_name&quot;</div><div class="line">    android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;</div><div class="line">    android:supportsRtl=&quot;true&quot;</div><div class="line">    android:theme=&quot;@style/AppTheme&quot;&gt;</div><div class="line">    &lt;activity android:name=&quot;.LansoDemoActivity&quot;&gt;</div><div class="line">        &lt;intent-filter&gt;</div><div class="line">            &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</div><div class="line"></div><div class="line">            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</div><div class="line">        &lt;/intent-filter&gt;</div><div class="line">    &lt;/activity&gt;</div><div class="line">    &lt;activity</div><div class="line">        android:name=&quot;.PlayerActivity&quot;</div><div class="line">        android:label=&quot;@string/title_activity_player&quot;</div><div class="line">        android:theme=&quot;@style/AppTheme.NoActionBar&quot;&gt;</div><div class="line">    &lt;/activity&gt;</div><div class="line">&lt;/application&gt;</div></pre></td></tr></table></figure></p>
-<p>@style/AppTheme.NoActionBar 和 @style/AppTheme 样式的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Base application theme. --&gt;</div><div class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</div><div class="line">    &lt;!-- Customize your theme here. --&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;style name=&quot;AppTheme.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-<p>gradle.build 指定的依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:appcompat-v7:25.3.1&apos;</div><div class="line">compile &apos;com.android.support.constraint:constraint-layout:1.0.2&apos;</div><div class="line">compile &apos;com.android.support:design:25.3.1&apos;</div></pre></td></tr></table></figure></p>
-<p>出错的 Activity 的定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public class PlayerActivity extends AppCompatActivity</div></pre></td></tr></table></figure></p>
-<p>出错的布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;android.support.design.widget.CoordinatorLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    tools:context=&quot;work.wangxiang.lansodemo.PlayerActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.AppBarLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:theme=&quot;@style/AppTheme.AppBarOverlay&quot;&gt;</div><div class="line"></div><div class="line">        &lt;android.support.v7.widget.Toolbar</div><div class="line">            android:id=&quot;@+id/toolbar&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;?attr/actionBarSize&quot;</div><div class="line">            android:background=&quot;?attr/colorPrimary&quot;</div><div class="line">            app:popupTheme=&quot;@style/AppTheme.PopupOverlay&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/android.support.design.widget.AppBarLayout&gt;</div><div class="line"></div><div class="line">    &lt;include layout=&quot;@layout/content_player&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.FloatingActionButton</div><div class="line">        android:id=&quot;@+id/fab&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_gravity=&quot;bottom|end&quot;</div><div class="line">        android:layout_margin=&quot;@dimen/fab_margin&quot;</div><div class="line">        app:srcCompat=&quot;@android:drawable/ic_dialog_email&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/android.support.design.widget.CoordinatorLayout&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/45650466/failed-to-instantiate-one-or-more-class-error-in-xml-android-studio" target="_blank" rel="external">修改依赖库的版本 design:26.0.0-alpha1</a></li>
-<li>解决了问题 <a href="https://stackoverflow.com/questions/42862486/android-you-need-to-use-a-theme-appcompat-theme-or-descendant-with-the-design" target="_blank" rel="external">in manifest add the appcompat theme</a></li>
-</ul>
-<blockquote>
-<p>把 activity 样式回复成原来的，重新打开 AS，又不出错了。</p>
-</blockquote>
-<h4 id="错误：Layout-fidelity-warning"><a href="#错误：Layout-fidelity-warning" class="headerlink" title="错误：Layout fidelity warning"></a>错误：Layout fidelity warning</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;TextView</div><div class="line">    android:id=&quot;@+id/iv_filter&quot;</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:drawableTop=&quot;@drawable/ic_filter_selector&quot;</div><div class="line">    android:gravity=&quot;center&quot;</div><div class="line">    android:padding=&quot;8dp&quot;</div><div class="line">    android:text=&quot;@string/filter&quot;</div><div class="line">    android:textSize=&quot;@dimen/font_small_size&quot;</div><div class="line">    android:shadowColor=&quot;@color/white&quot; /&gt;</div></pre></td></tr></table></figure>
-<p>accurate<br>英 [ˈækjərət]   美 [ˈækjərɪt]<br>adj.精确的，准确的;正确无误的</p>
-<p>fidelity<br>英 [fɪˈdeləti]   美 [fɪˈdɛlɪti,faɪ-]<br>n.保真度;逼真;忠诚，忠实;尽责</p>
-<p>The graphics preview in the layout editor may not be accurate:<br>Paint.setShadowLayer is not supported<br><a href="https://stackoverflow.com/questions/27849762/error-the-graphics-preview-in-the-layout-editor-may-not-be-accurate-paint-set" target="_blank" rel="external">error-the-graphics-preview-in-the-layout-editor-may-not-be-accurate-paint-set</a><br>It means the preview doesn’t know how to implement setShadowLayer. This means the preview won’t look exactly like the result rendered on the device. Which is one of many reasons why you shouldn’t trust the preview app- always test your layouts on a physical device before assuming they’re done.</p>
+            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://my.oschina.net/ryanhoo/blog/86874" target="_blank" rel="external">字体阴影</a></p>
+<ol>
+<li>硬边缘的阴影效果</li>
+<li>软化阴影</li>
+<li>改变偏移量来有效的改变光源的方向</li>
+<li>浮雕效果</li>
+<li>使用阴影创建光芒特效</li>
+<li>使用阴影创建外发光效果</li>
+</ol>
+<p><a href="https://stackoverflow.com/questions/4854935/textviewshadowdx-dy-radius-in-dip" target="_blank" rel="external">TextView:shadowDx/Dy/Radius in dip?</a><br>If it’s not specified then the unit is always in px.<br><a href="http://ask.csdn.net/questions/23664" target="_blank" rel="external">android:shadowDx, shadowRadius 后面的值是dip还是px还是sp ?</a><br>not dp,it’s px,用不同尺寸的手机或模拟器试试便知<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;TextView</div><div class="line">    android:id=&quot;@+id/iv_filter&quot;</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:drawableTop=&quot;@drawable/ic_filter_selector&quot;</div><div class="line">    android:gravity=&quot;center&quot;</div><div class="line">    android:padding=&quot;8dp&quot;</div><div class="line">    android:text=&quot;@string/filter&quot;</div><div class="line">    android:textSize=&quot;@dimen/font_small_size&quot;</div><div class="line">    android:textColor=&quot;@color/white&quot;</div><div class="line">    android:shadowColor=&quot;#7F000000&quot;</div><div class="line">    android:shadowDx=&quot;8sp&quot;</div><div class="line">    android:shadowDy=&quot;8sp&quot;</div><div class="line">    android:shadowRadius=&quot;6sp&quot;/&gt;</div><div class="line"></div><div class="line">Error:(166, 39) Dimension types not allowed (at &apos;shadowDx&apos; with value &apos;8sp&apos;).</div><div class="line">Error:(167, 39) Dimension types not allowed (at &apos;shadowDy&apos; with value &apos;8sp&apos;).</div><div class="line">Error:(168, 43) Dimension types not allowed (at &apos;shadowRadius&apos; with value &apos;6sp&apos;).</div><div class="line">Error:(166, 39) Dimension types not allowed (at &apos;shadowDx&apos; with value &apos;8sp&apos;).</div><div class="line">Error:(167, 39) Dimension types not allowed (at &apos;shadowDy&apos; with value &apos;8sp&apos;).</div><div class="line">Error:(168, 43) Dimension types not allowed (at &apos;shadowRadius&apos; with value &apos;6sp&apos;).</div></pre></td></tr></table></figure></p>
+<p><a href="https://stackoverflow.com/questions/4854935/textviewshadowdx-dy-radius-in-dip/5776803#5776803" target="_blank" rel="external">解决方法</a></p>
 
           
         
@@ -996,7 +651,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/编程/android/android sdk/touch event/touch-event-dispatch/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android studio/lint/lint-xml-warning-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1015,7 +670,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/编程/android/android sdk/touch event/touch-event-dispatch/" itemprop="url">Android 触摸事件分发流程</a></h1>
+                <a class="post-title-link" href="/2017/09/30/android/android studio/lint/lint-xml-warning-list/" itemprop="url">android studio lint xml</a></h1>
         
 
         <div class="post-meta">
@@ -1027,182 +682,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T22:28:19+08:00">
-                2017-09-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
-                    <span itemprop="name">android sdk</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-sdk/touch-event/" itemprop="url" rel="index">
-                    <span itemprop="name">touch event</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="需要整理"><a href="#需要整理" class="headerlink" title="需要整理"></a>需要整理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">private boolean clickOutsideOf(View v, MotionEvent ev) &#123;</div><div class="line">    if (v.isShown()) &#123;</div><div class="line">        Rect rect = new Rect();</div><div class="line">        v.getGlobalVisibleRect(rect);</div><div class="line">        if (!rect.contains((int) ev.getRawX(), (int) ev.getRawY())) &#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> @Override</div><div class="line"> public boolean dispatchTouchEvent(MotionEvent ev) &#123;</div><div class="line">     if (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;</div><div class="line">         if (clickOutsideOf(filterListScrollView, ev)) &#123;</div><div class="line">             mFilterSelectedPresenter.handlerFilterContainer();</div><div class="line">             return true;</div><div class="line"></div><div class="line">         &#125; else if (clickOutsideOf(effectListRecyclerView, ev)) &#123;</div><div class="line">             viewModel.setEffectVideoMode(false);</div><div class="line">             return true;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     return super.dispatchTouchEvent(ev);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/编程/android/android studio/editor/as-editor-auto-fill-live-templates/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/23/编程/android/android studio/editor/as-editor-auto-fill-live-templates/" itemprop="url">Android Studio Editor 自动补全的模板定义</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T21:00:45+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T11:18:48+08:00">
+                2017-09-30
               </time>
             
 
@@ -1257,8 +738,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/editor/" itemprop="url" rel="index">
-                    <span itemprop="name">editor</span>
+                  <a href="/categories/编程/android/android-studio/lint/" itemprop="url" rel="index">
+                    <span itemprop="name">lint</span>
                   </a>
                 </span>
 
@@ -1296,36 +777,10 @@
       
         
           
-            <h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
-<li><a href="https://www.jetbrains.com/help/idea/live-templates.html" target="_blank" rel="external">官方文档</a></li>
-<li><a href="http://blog.csdn.net/zuiwuyuan/article/details/48201185" target="_blank" rel="external">Android Studio添加注释模板</a></li>
-<li><a href="https://stackoverflow.com/questions/8613884/how-do-i-insert-special-characters-as-text-in-xml-editor-for-android" target="_blank" rel="external">insert special characters as text in XML editor for Android</a></li>
-<li><a href="https://www.jetbrains.com/help/idea/live-template-variables.html" target="_blank" rel="external">Live Template Variables</a></li>
-</ul>
-<h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。<br>希望能自动插入这些信息（特别是创建日期）</p>
-<h4 id="添加自定义的-Live-Templates"><a href="#添加自定义的-Live-Templates" class="headerlink" title="添加自定义的 Live Templates"></a>添加自定义的 Live Templates</h4><ul>
-<li>编辑 Live Templates 的位置  <blockquote>
-<p>File | settings | editor | Live Templates`</p>
-</blockquote>
-</li>
-<li>选中 <strong>user</strong> 点击对话框右侧的加号按钮，创建新的模板<blockquote>
-<p>也可创建自己的模板组（不使用 user 组）</p>
-</blockquote>
-</li>
-<li>新建模板对话框中的名词解释<ul>
-<li>Abbreviation: 你敲 指定的单词 加回车，模板就出来了</li>
-<li>Description: 表示这个模板描述</li>
-<li>Template text：模板的内容</li>
-<li>Edit Variables 定义模板中的变量（如：$data$）</li>
-<li>Applicable in <em>*</em> 这个自动填充模块，应用于什么类型的文档。</li>
-</ul>
-</li>
-<li>示例代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: $title$</div><div class="line">date: $date$</div><div class="line">tags: []</div><div class="line">categories: []</div><div class="line">---</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>Edit Variables 时指定 date 的表达式是 <code>date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code><br>title 的静态式是 fileNameWithoutExtension()</p>
-</blockquote>
+            <h4 id="layout-alignParentRight"><a href="#layout-alignParentRight" class="headerlink" title="layout_alignParentRight"></a>layout_alignParentRight</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:layout_alignParentRight=&quot;true&quot;</div><div class="line">    android:layout_centerVertical=&quot;true&quot;</div><div class="line">    android:gravity=&quot;center&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;</div><div class="line">    android:visibility=&quot;@&#123;viewModel.hideTopBar?View.GONE:View.VISIBLE&#125;&quot;&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Consider replacing `android:layout_alignParentRight` with `android:layout_alignParentEnd=&quot;true&quot;` to better support right-to-left layouts</div></pre></td></tr></table></figure>
+<h4 id="android-attr-buttonBarButtonStyle"><a href="#android-attr-buttonBarButtonStyle" class="headerlink" title="?android:attr/buttonBarButtonStyle"></a>?android:attr/buttonBarButtonStyle</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)</div></pre></td></tr></table></figure>
+<p>Button 和 其父视图 都需要加上对应的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;56dp&quot;</div><div class="line">    android:layout_alignParentEnd=&quot;true&quot;</div><div class="line">    android:layout_centerVertical=&quot;true&quot;</div><div class="line">    android:gravity=&quot;center_vertical&quot;</div><div class="line">    android:orientation=&quot;horizontal&quot;</div><div class="line">    style=&quot;?android:attr/buttonBarStyle&quot; &gt;</div><div class="line">    &lt;Button</div><div class="line">        android:id=&quot;@+id/id_fullscreen_filter&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_marginEnd=&quot;20dp&quot;</div><div class="line">        android:background=&quot;@null&quot;</div><div class="line">        android:text=&quot;@string/filter&quot;</div><div class="line">        android:textColor=&quot;@color/red&quot;</div><div class="line">        android:textSize=&quot;20sp&quot;</div><div class="line">        android:visibility=&quot;gone&quot;</div><div class="line">        style=&quot;?android:attr/buttonBarButtonStyle&quot; /&gt;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1374,7 +829,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/编程/android/android studio/tools/adb-driver-install-windows/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/29/android/android studio/build/build-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1393,7 +848,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/编程/android/android studio/tools/adb-driver-install-windows/" itemprop="url">安装Windows系统的adb驱动</a></h1>
+                <a class="post-title-link" href="/2017/09/29/android/android studio/build/build-error/" itemprop="url">Android Studio Build 失败记录</a></h1>
         
 
         <div class="post-meta">
@@ -1405,8 +860,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T20:35:58+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T10:47:22+08:00">
+                2017-09-29
               </time>
             
 
@@ -1461,8 +916,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-studio/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/编程/android/android-studio/build/" itemprop="url" rel="index">
+                    <span itemprop="name">build</span>
                   </a>
                 </span>
 
@@ -1500,7 +955,10 @@
       
         
           
-            
+            <h4 id="错误-程序包com-caiyi-youle-databinding不存在"><a href="#错误-程序包com-caiyi-youle-databinding不存在" class="headerlink" title="错误: 程序包com.caiyi.youle.databinding不存在"></a>错误: 程序包com.caiyi.youle.databinding不存在</h4><p>现象：com.caiyi.youle.databinding.ActivityCameraRecordVideoLayoutBinding 这个包，可以跳转过去。<br>解决方法：是布局文件问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">:app:compile_360DebugJavaWithJavac</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\CountDownPresenter.java:9: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraRecordVideoLayoutBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\CountDownPresenter.java:24: 错误: 找不到符号</div><div class="line">    ActivityCameraRecordVideoLayoutBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityCameraRecordVideoLayoutBinding</div><div class="line">  位置: 类 CountDownPresenter</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\CountDownPresenter.java:25: 错误: 找不到符号</div><div class="line">    public CountDownPresenter(Context context, ActivityCameraRecordVideoLayoutBinding binding,TextView tvCountDown) &#123;</div><div class="line">                                               ^</div><div class="line">  符号:   类 ActivityCameraRecordVideoLayoutBinding</div><div class="line">  位置: 类 CountDownPresenter</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\draftbox\DraftBoxActivity.java:21: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityDraftBoxBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\draftbox\DraftBoxActivity.java:33: 错误: 找不到符号</div><div class="line">    ActivityDraftBoxBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityDraftBoxBinding</div><div class="line">  位置: 类 DraftBoxActivity</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\FilterSelectedPresenter.java:10: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraRecordVideoLayoutBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\FilterSelectedPresenter.java:38: 错误: 找不到符号</div><div class="line">    ActivityCameraRecordVideoLayoutBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityCameraRecordVideoLayoutBinding</div><div class="line">  位置: 类 FilterSelectedPresenter</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\FilterSelectedPresenter.java:62: 错误: 找不到符号</div><div class="line">    public FilterSelectedPresenter(Context context, ActivityCameraRecordVideoLayoutBinding binding, View container) &#123;</div><div class="line">                                                    ^</div><div class="line">  符号:   类 ActivityCameraRecordVideoLayoutBinding</div><div class="line">  位置: 类 FilterSelectedPresenter</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\PublishActivity.java:31: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraPublishBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\PublishActivity.java:52: 错误: 找不到符号</div><div class="line">    private ActivityCameraPublishBinding dataBinding;</div><div class="line">            ^</div><div class="line">  符号:   类 ActivityCameraPublishBinding</div><div class="line">  位置: 类 PublishActivity</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\RecordVideoActivity.java:38: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraRecordVideoLayoutBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoEffectPresenter.java:12: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraEditVideoBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\RecordVideoActivity.java:878: 错误: 找不到符号</div><div class="line">    private ActivityCameraRecordVideoLayoutBinding dataBinding;</div><div class="line">            ^</div><div class="line">  符号:   类 ActivityCameraRecordVideoLayoutBinding</div><div class="line">  位置: 类 RecordVideoActivity</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\viewModel\RecordVideoViewModel.java:7: 错误: 找不到符号</div><div class="line">import com.android.databinding.library.baseAdapters.BR;</div><div class="line">                                                   ^</div><div class="line">  符号:   类 BR</div><div class="line">  位置: 程序包 com.android.databinding.library.baseAdapters</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoCutActivity.java:23: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraVideoCutBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoCutActivity.java:334: 错误: 找不到符号</div><div class="line">    ActivityCameraVideoCutBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityCameraVideoCutBinding</div><div class="line">  位置: 类 VideoCutActivity</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoEditorActivity.java:34: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraEditVideoBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoEditorActivity.java:83: 错误: 找不到符号</div><div class="line">    ActivityCameraEditVideoBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityCameraEditVideoBinding</div><div class="line">  位置: 类 VideoEditorActivity</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoEditorAlbumActivity.java:32: 错误: 程序包com.caiyi.youle.databinding不存在</div><div class="line">import com.caiyi.youle.databinding.ActivityCameraEditAlbumVideoBinding;</div><div class="line">                                  ^</div><div class="line">D:\work\videoshare_android.git\app\src\main\java\com\caiyi\youle\camera\VideoEditorAlbumActivity.java:75: 错误: 找不到符号</div><div class="line">    ActivityCameraEditAlbumVideoBinding dataBinding;</div><div class="line">    ^</div><div class="line">  符号:   类 ActivityCameraEditAlbumVideoBinding</div><div class="line">  位置: 类 VideoEditorAlbumActivity</div></pre></td></tr></table></figure>
+<p>布局中引用了 view-model 中没有定义的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;FrameLayout</div><div class="line">    android:id=&quot;@+id/camera_effect_view&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">    tools:visibility=&quot;gone&quot;</div><div class="line">    android:visibility=&quot;@&#123;viewModel.operationState==viewModel.STATE_FILTER?View.VISIBLE:View.GONE&#125;&quot;&gt; viewMode中没有这个变量</div><div class="line"></div><div class="line">    &lt;include</div><div class="line">        android:id=&quot;@+id/camera_effect_menu_view_include&quot;</div><div class="line">        layout=&quot;@layout/camera_effect_menu_view&quot; /&gt;</div><div class="line">&lt;/FrameLayout&gt;</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -1548,7 +1006,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/工具/编辑器/MarkDown/markdown-doc-label/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/ffmpeg/ffmpeg-android/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1567,7 +1025,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/工具/编辑器/MarkDown/markdown-doc-label/" itemprop="url">Markdown 文档 标签说明</a></h1>
+                <a class="post-title-link" href="/2017/09/28/ffmpeg/ffmpeg-android/" itemprop="url">ffmpeg android 资料收集</a></h1>
         
 
         <div class="post-meta">
@@ -1579,8 +1037,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T20:22:25+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T19:18:48+08:00">
+                2017-09-28
               </time>
             
 
@@ -1602,8 +1060,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -1613,19 +1071,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/编辑器/" itemprop="url" rel="index">
-                    <span itemprop="name">编辑器</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/编辑器/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
+                  <a href="/categories/编程/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
                   </a>
                 </span>
 
@@ -1663,40 +1110,7 @@
       
         
           
-            <h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
-<li><a href="http://syxiaqj.github.io/2014/02/23/write-blog-with-markdown/" target="_blank" rel="external">Markdown语法</a></li>
-<li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">Markdown: Basics （快速入门）</a></li>
-<li><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">献给写作者的 Markdown 新手指南</a></li>
-</ul>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
-<li>一定要注意空格的使用<ul>
-<li>两个空格有缩进的意思</li>
-<li>嵌套标签时，标签间必须加空格  </li>
-<li>行中使用的标签，必须与前面的文字之间加个空格</li>
-</ul>
-</li>
-<li>两个换行符 即 增加一个空行的意思</li>
-</ul>
-<h4 id="hexo-特殊要求"><a href="#hexo-特殊要求" class="headerlink" title="hexo 特殊要求"></a>hexo 特殊要求</h4><ul>
-<li>某些情况下，需要增加空行来隔离后面的段落，否则会出现缩进错误<ul>
-<li>列表最后需要增加一个空行，来隔离后面的段落</li>
-<li>引用块的最后一行，也需要加个空行，来隔离后面的段落</li>
-</ul>
-</li>
-</ul>
-<h4 id="引用中加代码的方法"><a href="#引用中加代码的方法" class="headerlink" title="引用中加代码的方法"></a>引用中加代码的方法</h4><p>引用符号 &gt; 后面加上，代码块符号 ``` 。大部分编辑器可正确显示。<br>但是，hexo，分析错误。  </p>
-<blockquote>
-<p>原因：hexo 要求引用块的最后一行，需要增加一个空行来隔离后面的段落</p>
-</blockquote>
-<h4 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h4><p>需要引用代码时，如果引用的语句只有一段，不分行，可以用 ` 将语句包起来。<br>如果引用的语句为多行，可以将```置于这段代码的首行和末行。</p>
-<h4 id="链接、图片"><a href="#链接、图片" class="headerlink" title="链接、图片"></a>链接、图片</h4><p><code>![图片说明](url 或者 路径)</code></p>
-<blockquote>
-<p>当前站点的图片，一般放在 source/images 下，对应的路径就是 /images/example.jpg </p>
-</blockquote>
-<p><code>[链接说明](url 或者 路径)</code></p>
-<blockquote>
-<p>例子： <code>[参考 git submodule add](../../../../25/工程管理/git/git-cmd-submodule/)</code></p>
-</blockquote>
+            <p><a href="http://blog.csdn.net/sno_guo/article/details/51852363" target="_blank" rel="external">android平台短视频技术之 视频编辑的经验分享</a></p>
 
           
         
@@ -1745,7 +1159,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/编程/android/3rdParty/lansosdk/lansosdk-demo/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/android/android studio/lint/lint-code-warning-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1764,7 +1178,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/编程/android/3rdParty/lansosdk/lansosdk-demo/" itemprop="url">lansosdk 集成方法</a></h1>
+                <a class="post-title-link" href="/2017/09/28/android/android studio/lint/lint-code-warning-list/" itemprop="url">android studio lint code warning list</a></h1>
         
 
         <div class="post-meta">
@@ -1776,8 +1190,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T19:47:55+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T15:28:41+08:00">
+                2017-09-28
               </time>
             
 
@@ -1821,8 +1235,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/" itemprop="url" rel="index">
-                    <span itemprop="name">3rdParty</span>
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
                   </a>
                 </span>
 
@@ -1832,8 +1246,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/lansosdk/" itemprop="url" rel="index">
-                    <span itemprop="name">lansosdk</span>
+                  <a href="/categories/编程/android/android-studio/lint/" itemprop="url" rel="index">
+                    <span itemprop="name">lint</span>
                   </a>
                 </span>
 
@@ -1871,21 +1285,9 @@
       
         
           
-            <h3 id="添加的库文件"><a href="#添加的库文件" class="headerlink" title="添加的库文件"></a>添加的库文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app/src/main/jniLibs/armeabi-v7a/libffmpegeditor.so</div><div class="line">app/src/main/jniLibs/armeabi-v7a/liblsdisplay.so</div><div class="line">app/src/main/jniLibs/armeabi-v7a/liblsplayer.so</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app/libs/PermissionsManager.jar 第三方库</div><div class="line">app/libs/lansongeditor_hx.jar</div><div class="line">app/libs/textsurface.jar</div></pre></td></tr></table></figure>
-<h3 id="添加源文件"><a href="#添加源文件" class="headerlink" title="添加源文件"></a>添加源文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">com.lansosdk.videoeditor</div><div class="line">com.lansosdk.videoplayer</div></pre></td></tr></table></figure>
-<blockquote>
-<p>可以从<a href="https://github.com/LanSoSdk/LanSoEditor_advance" target="_blank" rel="external">官网DEMO</a>中获取</p>
-</blockquote>
-<h3 id="添加权限"><a href="#添加权限" class="headerlink" title="添加权限"></a>添加权限</h3><p><code>&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;</code></p>
-<blockquote>
-<p>6.0 及以上系统，别忘记在运行时请求权限</p>
-</blockquote>
-<h3 id="初始化时，加载-so-库，及验证key"><a href="#初始化时，加载-so-库，及验证key" class="headerlink" title="初始化时，加载 so 库，及验证key"></a>初始化时，加载 so 库，及验证key</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LoadLanSongSdk.loadLibraries();</div><div class="line">LanSoEditor.initSo(getApplicationContext(), 购买的KEY文件名-存储在asset目录下);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果没有购买，初始化库时这样写<br><code>LanSoEditor.initSo(getApplicationContext(),null);</code><br>应用的包名必须是 <strong><em>com.lansoeditor.demo</em></strong> <code>修改 module-gradle.build 中的 applicationId</code><br>应用的名字必须是 <strong><em>蓝松视频编辑高级版本DEMO</em></strong> <code>修改清单文件.application 标签的 label 属性</code></p>
-</blockquote>
-<h3 id="简单测试代码"><a href="#简单测试代码" class="headerlink" title="简单测试代码"></a>简单测试代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MeidaInfo mediaInfo = new MediaInfo(测试视频文件路径, );</div><div class="line">if (mediaInfo.parse()) &#123;</div><div class="line">&#125; else &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h4 id="Implicitly-using-the-default-locale"><a href="#Implicitly-using-the-default-locale" class="headerlink" title="Implicitly using the default locale"></a>Implicitly using the default locale</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String time = String.format(&quot;%02d:%d&quot;, seconds, ms);</div></pre></td></tr></table></figure>
+<p>Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</p>
+
           
         
       
@@ -1933,7 +1335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/23/编程/android/3rdParty/3rdPaty/">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/android/android studio/res/drawable/drawable-xml-shape/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wxiang">
@@ -1952,7 +1354,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/编程/android/3rdParty/3rdPaty/" itemprop="url">Android 第三方库列表</a></h1>
+                <a class="post-title-link" href="/2017/09/28/android/android studio/res/drawable/drawable-xml-shape/" itemprop="url">android drawable shape</a></h1>
         
 
         <div class="post-meta">
@@ -1964,8 +1366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T19:40:11+08:00">
-                2017-09-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T14:33:58+08:00">
+                2017-09-28
               </time>
             
 
@@ -2009,8 +1411,30 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/3rdParty/" itemprop="url" rel="index">
-                    <span itemprop="name">3rdParty</span>
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
+                    <span itemprop="name">res</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/drawable/" itemprop="url" rel="index">
+                    <span itemprop="name">drawable</span>
                   </a>
                 </span>
 
@@ -2048,11 +1472,602 @@
       
         
           
-            <h4 id="3rd"><a href="#3rd" class="headerlink" title="3rd"></a>3rd</h4><p>第一first 简写为1st 第二second 简写为2nd 第三third 简写为3rd 只有第三个单词是不规律的</p>
-<h3 id="Third-party-software-component"><a href="#Third-party-software-component" class="headerlink" title="Third-party software component"></a>Third-party software component</h3><p><a href="https://en.wikipedia.org/wiki/Third-party_software_component" target="_blank" rel="external">https://en.wikipedia.org/wiki/Third-party_software_component</a><br>by an entity other than the original vendor of the development platform.<br>非开发平台提供的库。</p>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
-<li>lansosdk <a href="https://github.com/LanSoSdk" target="_blank" rel="external">https://github.com/LanSoSdk</a> 安卓平台视频编辑高级版本</li>
-</ul>
+            <h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#Shape" target="_blank" rel="external">形状可绘制对象</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">oval</div><div class="line">英 [ˈəʊvl]   美 [ˈoʊvl]</div><div class="line">adj.椭圆形的;卵形的</div><div class="line">n.椭圆形;椭圆运动场（等）;椭圆，美式足球用球;[物]卵形线</div></pre></td></tr></table></figure></p>
+<p>语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;shape</div><div class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:shape=[&quot;rectangle&quot; | &quot;oval&quot; | &quot;line&quot; | &quot;ring&quot;] &gt;</div><div class="line">    &lt;corners</div><div class="line">        android:radius=&quot;integer&quot;</div><div class="line">        android:topLeftRadius=&quot;integer&quot;</div><div class="line">        android:topRightRadius=&quot;integer&quot;</div><div class="line">        android:bottomLeftRadius=&quot;integer&quot;</div><div class="line">        android:bottomRightRadius=&quot;integer&quot; /&gt;</div><div class="line">    &lt;gradient</div><div class="line">        android:angle=&quot;integer&quot;</div><div class="line">        android:centerX=&quot;float&quot;</div><div class="line">        android:centerY=&quot;float&quot;</div><div class="line">        android:centerColor=&quot;integer&quot;</div><div class="line">        android:endColor=&quot;color&quot;</div><div class="line">        android:gradientRadius=&quot;integer&quot;</div><div class="line">        android:startColor=&quot;color&quot;</div><div class="line">        android:type=[&quot;linear&quot; | &quot;radial&quot; | &quot;sweep&quot;]</div><div class="line">        android:useLevel=[&quot;true&quot; | &quot;false&quot;] /&gt;</div><div class="line">    &lt;padding</div><div class="line">        android:left=&quot;integer&quot;</div><div class="line">        android:top=&quot;integer&quot;</div><div class="line">        android:right=&quot;integer&quot;</div><div class="line">        android:bottom=&quot;integer&quot; /&gt;</div><div class="line">    &lt;size</div><div class="line">        android:width=&quot;integer&quot;</div><div class="line">        android:height=&quot;integer&quot; /&gt;</div><div class="line">    &lt;solid</div><div class="line">        android:color=&quot;color&quot; /&gt;</div><div class="line">    &lt;stroke</div><div class="line">        android:width=&quot;integer&quot;</div><div class="line">        android:color=&quot;color&quot;</div><div class="line">        android:dashWidth=&quot;integer&quot;</div><div class="line">        android:dashGap=&quot;integer&quot; /&gt;</div><div class="line">&lt;/shape&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="https://stackoverflow.com/questions/6698927/border-in-shape-xml" target="_blank" rel="external">设置边框</a></p>
+<blockquote>
+<p>设置边框时，shape，的预览图里看不到，需要到实际使用时的布局里查看</p>
+</blockquote>
+<h4 id="背景色渐变"><a href="#背景色渐变" class="headerlink" title="背景色渐变"></a>背景色渐变</h4><p><a href="http://blog.csdn.net/jamesliulyc/article/details/6433168" target="_blank" rel="external">android 背景渐变色(shape,gradient)</a><br>shape是用来定义形状的，gradient定义该形状里面为渐变色填充，startColor起始颜色，endColor结束颜色，angle表示方向角度。<br>当angle=0时，渐变色是从左向右。 然后逆时针方向转，当angle=90时为从下往上。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/android/android studio/res/color-state-list/color-state-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/android/android studio/res/color-state-list/color-state-list/" itemprop="url">android color state list</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T13:28:51+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
+                    <span itemprop="name">res</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/color-state-list/" itemprop="url" rel="index">
+                    <span itemprop="name">color-state-list</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://developer.android.com/guide/topics/resources/color-list-resource.html" target="_blank" rel="external">Color State List Resource</a></p>
+<p>A ColorStateList is an object you can define in XML that you can apply as a color, but will actually change colors, depending on the state of the View object to which it is applied. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a color state list, you can provide a different color during each state.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;</div><div class="line">    &lt;item</div><div class="line">        android:color=&quot;hex_color&quot;</div><div class="line">        android:state_pressed=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_focused=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_selected=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checkable=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_checked=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_enabled=[&quot;true&quot; | &quot;false&quot;]</div><div class="line">        android:state_window_focused=[&quot;true&quot; | &quot;false&quot;] /&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item android:state_pressed=&quot;true&quot;</div><div class="line">          android:color=&quot;#ffff0000&quot;/&gt; &lt;!-- pressed --&gt;</div><div class="line">    &lt;item android:state_focused=&quot;true&quot;</div><div class="line">          android:color=&quot;#ff0000ff&quot;/&gt; &lt;!-- focused --&gt;</div><div class="line">    &lt;item android:color=&quot;#ff000000&quot;/&gt; &lt;!-- default --&gt;</div><div class="line">&lt;/selector&gt;</div><div class="line"></div><div class="line">&lt;Button</div><div class="line">    android:layout_width=&quot;fill_parent&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:text=&quot;@string/button_text&quot;</div><div class="line">    android:textColor=&quot;@color/button_text&quot; /&gt;</div></pre></td></tr></table></figure>
+<h4 id="对比-State-List-Drawable"><a href="#对比-State-List-Drawable" class="headerlink" title="对比 State List Drawable"></a>对比 State List Drawable</h4><p>例子(视频发布时的截图按钮)：一个 TextView 需要设置，控件按下状态的，<br>1) 文本颜色， res/color/color-selector.xml<br>2) 背景，<br>3) drawableLeft</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/android/android studio/res/resource/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/android/android studio/res/resource/" itemprop="url">android 资源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T12:21:54+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
+                    <span itemprop="name">res</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://developer.android.com/guide/topics/resources/available-resources.html" target="_blank" rel="external">Resource Types</a><br><a href="https://developer.android.com/guide/topics/resources/more-resources.html" target="_blank" rel="external">More Resource Types</a></p>
+<h4 id="Resource-Types"><a href="#Resource-Types" class="headerlink" title="Resource Types"></a>Resource Types</h4><p>Each of the documents in this section describe the usage, format and syntax for a certain type of application resource that you can provide in your resources directory (res/).</p>
+<ol>
+<li>Animation Resources<br>Define pre-determined animations.<br>Tween animations are saved in res/anim/ and accessed from the R.anim class.<br>Frame animations are saved in res/drawable/ and accessed from the R.drawable class.</li>
+<li>Color State List Resource<br>Define a color resources that changes based on the View state.<br>Saved in res/color/ and accessed from the R.color class.</li>
+<li>Drawable Resources<br>Define various graphics with bitmaps or XML.<br>Saved in res/drawable/ and accessed from the R.drawable class.</li>
+<li>Layout Resource<br>Define the layout for your application UI.<br>Saved in res/layout/ and accessed from the R.layout class.</li>
+<li>Menu Resource<br>Define the contents of your application menus.<br>Saved in res/menu/ and accessed from the R.menu class.</li>
+<li>String Resources<br>Define strings, string arrays, and plurals (and include string formatting and styling).<br>Saved in res/values/ and accessed from the R.string, R.array, and R.plurals classes.</li>
+<li>Style Resource<br>Define the look and format for UI elements.<br>Saved in res/values/ and accessed from the R.style class.</li>
+<li>Font Resources<br>Define font families and include custom fonts in XML.<br>Saved in res/font/ and accessed from the R.font class.</li>
+<li>More Resource Types<br>Define values such as booleans, integers, dimensions, colors, and other arrays.<br>Saved in res/values/ but each accessed from unique R sub-classes (such as R.bool, R.integer, R.dimen, etc.).</li>
+</ol>
+<h4 id="More-Resource-Types"><a href="#More-Resource-Types" class="headerlink" title="More Resource Types"></a>More Resource Types</h4><p>This page defines more types of resources you can externalize, including:</p>
+<ol>
+<li>Bool<br>XML resource that carries a boolean value.</li>
+<li>Color<br>XML resource that carries a color value (a hexadecimal color).</li>
+<li>Dimension<br>XML resource that carries a dimension value (with a unit of measure).</li>
+<li>ID<br>XML resource that provides a unique identifier for application resources and components.</li>
+<li>Integer<br>XML resource that carries an integer value.</li>
+<li>Integer Array<br>XML resource that provides an array of integers.</li>
+<li>Typed Array<br>XML resource that provides a TypedArray (which you can use for an array of drawables)</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/28/android/android studio/res/drawable/drawable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/android/android studio/res/drawable/drawable/" itemprop="url">android drawable resource</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T12:14:51+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/" itemprop="url" rel="index">
+                    <span itemprop="name">res</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/res/drawable/" itemprop="url" rel="index">
+                    <span itemprop="name">drawable</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html" target="_blank" rel="external">可绘制对象资源</a><br>可绘制对象资源是一般概念，是指可在屏幕上绘制的图形，以及可以使用 getDrawable(int) 等 API 检索或者应用到具有 android:drawable 和 android:icon 等属性的其他 XML 资源的图形。</p>
+<h4 id="多种不同类型的可绘制对象"><a href="#多种不同类型的可绘制对象" class="headerlink" title="多种不同类型的可绘制对象"></a>多种不同类型的可绘制对象</h4><ol>
+<li>位图文件<br>位图图形文件（.png、.jpg 或 .gif）。创建 BitmapDrawable。</li>
+<li>九宫格文件<br>具有可拉伸区域的 PNG 文件，允许根据内容调整图像大小 (.9.png)。创建 NinePatchDrawable。</li>
+<li>图层列表<br>管理其他可绘制对象阵列的可绘制对象。它们按阵列顺序绘制，因此索引最大的元素绘制在顶部。创建 LayerDrawable。</li>
+<li>状态列表<br>此 XML 文件为不同状态引用不同位图图形（例如，按下按钮时使用不同的图像）。创建 StateListDrawable。</li>
+<li>级别列表<br>此 XML 文件用于定义管理大量备选可绘制对象的可绘制对象，每个可绘制对象都分配有最大的备选数量。创建 LevelListDrawable。</li>
+<li>转换可绘制对象<br>此 XML 文件用于定义可在两种可绘制对象资源之间交错淡出的可绘制对象。创建 TransitionDrawable。</li>
+<li>插入可绘制对象<br>此 XML 文件用于定义以指定距离插入其他可绘制对象的可绘制对象。当视图需要小于视图实际边界的背景可绘制对象时，此类可绘制对象很有用。</li>
+<li>裁剪可绘制对象<br>此 XML 文件用于定义对其他可绘制对象进行裁剪（根据其当前级别值）的可绘制对象。创建 ClipDrawable。</li>
+<li>缩放可绘制对象<br>此 XML 文件用于定义更改其他可绘制对象大小（根据其当前级别值）的可绘制对象。创建 ScaleDrawable</li>
+<li>形状可绘制对象<br>此 XML 文件用于定义几何形状（包括颜色和渐变）。创建 ShapeDrawable。</li>
+</ol>
+<p>另请参阅动画资源文档，了解如何创建 AnimationDrawable。</p>
+<blockquote>
+<p>注：颜色资源也可用作 XML 中的可绘制对象。例如，在创建状态列表可绘制对象时，可以引用 android:drawable 属性的颜色资源 (android:drawable=”@color/green”)。</p>
+</blockquote>
 
           
         
@@ -2092,7 +2107,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2137,7 +2152,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2148,7 +2163,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2159,7 +2174,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2201,7 +2216,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
