@@ -278,6 +278,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/android/exception/java.lang.IllegalStateException-setSupportActionBar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/25/android/exception/java.lang.IllegalStateException-setSupportActionBar/" itemprop="url">java.lang.IllegalStateException setSupportActionBar</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T16:51:37+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/exception/" itemprop="url" rel="index">
+                    <span itemprop="name">exception</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_player);</div><div class="line">    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">    setSupportActionBar(toolbar);</div></pre></td></tr></table></figure></p>
+<p>异常信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.</div><div class="line">     at android.support.v7.app.AppCompatDelegateImplV9.setSupportActionBar(AppCompatDelegateImplV9.java:204)</div><div class="line">     at android.support.v7.app.AppCompatActivity.setSupportActionBar(AppCompatActivity.java:129)</div><div class="line">     at work.wangxiang.lansodemo.PlayerActivity.onCreate(PlayerActivity.java:20)</div><div class="line">     at android.app.Activity.performCreate(Activity.java:6288)</div><div class="line">     at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1113)</div></pre></td></tr></table></figure></p>
+<p>清单文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=&quot;.PlayerActivity&quot;</div><div class="line">    android:label=&quot;@string/title_activity_player&quot;</div><div class="line">    android:theme=&quot;@style/AppTheme&quot;&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>样式代码 <code>@style/AppTheme</code><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</div><div class="line">    &lt;!-- Customize your theme here. --&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>解决方法，修改成下面的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppTheme.NoActionBar&quot; parent=&quot;Theme.AppCompat&quot;&gt;</div><div class="line">    &lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/25/android/android studio/res/layout/layout-preview-render-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -784,14 +952,29 @@
       
         
           
-            <h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
+            <h3 id="常用代码片段"><a href="#常用代码片段" class="headerlink" title="常用代码片段"></a>常用代码片段</h3><ol>
+<li>hexo markdown header<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: $title$</div><div class="line">date: $date$</div><div class="line">tags: []</div><div class="line">categories: []</div><div class="line">---</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>abbr: hexo-header<br>date 的表达式是 <code>date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code><br>title 的表达式是 fileNameWithoutExtension()</p>
+</blockquote>
+<ol>
+<li>private final static String TAG<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private final static String TAG = &quot;$CLASS_NAME$&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>abbr: pfsst<br>变量 className()</p>
+</blockquote>
+<h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
 <li><a href="https://www.jetbrains.com/help/idea/live-templates.html" target="_blank" rel="external">官方文档</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/live-templates-2.html#d709674e34" target="_blank" rel="external">用于计算变量的预定义方法列表</a></li>
 <li><a href="http://blog.csdn.net/zuiwuyuan/article/details/48201185" target="_blank" rel="external">Android Studio添加注释模板</a></li>
 <li><a href="https://stackoverflow.com/questions/8613884/how-do-i-insert-special-characters-as-text-in-xml-editor-for-android" target="_blank" rel="external">insert special characters as text in XML editor for Android</a></li>
 <li><a href="https://www.jetbrains.com/help/idea/live-template-variables.html" target="_blank" rel="external">Live Template Variables</a></li>
 </ul>
-<h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。<br>希望能自动插入这些信息（特别是创建日期）</p>
-<h4 id="添加自定义的-Live-Templates"><a href="#添加自定义的-Live-Templates" class="headerlink" title="添加自定义的 Live Templates"></a>添加自定义的 Live Templates</h4><ul>
+<h3 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h3><p>编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。<br>希望能自动插入这些信息（特别是创建日期）</p>
+<h3 id="添加自定义的-Live-Templates"><a href="#添加自定义的-Live-Templates" class="headerlink" title="添加自定义的 Live Templates"></a>添加自定义的 Live Templates</h3><ul>
 <li>编辑 Live Templates 的位置  <blockquote>
 <p>File | settings | editor | Live Templates`</p>
 </blockquote>
@@ -808,12 +991,8 @@
 <li>Applicable in <em>*</em> 这个自动填充模块，应用于什么类型的文档。</li>
 </ul>
 </li>
-<li>示例代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: $title$</div><div class="line">date: $date$</div><div class="line">tags: []</div><div class="line">categories: []</div><div class="line">---</div></pre></td></tr></table></figure>
-</li>
 </ul>
-<blockquote>
-<p>Edit Variables 时指定 date 的表达式是 <code>date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code><br>title 的表达式是 fileNameWithoutExtension()</p>
-</blockquote>
+<h3 id="单词"><a href="#单词" class="headerlink" title="单词"></a>单词</h3><p>abbreviation<br>英 [əˌbri:viˈeɪʃn]   美 [əˌbriviˈeʃən]<br>n.省略，缩写，简化，缩写词，略语;[数学]约分;[音乐]略号</p>
 
           
         
@@ -1547,6 +1726,9 @@
 <li><p><a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">RxJava</a></p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">implementation <span class="string">'io.reactivex.rxjava2:rxandroid:2.0.2'</span></div><div class="line">implementation <span class="string">'io.reactivex.rxjava2:rxjava:2.1.10'</span></div></pre></td></tr></table></figure>
 </li>
+<li><p><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkPlayer</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># required, enough for most devices.</div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'</span></div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'</span></div><div class="line"></div><div class="line"># Other ABIs: optional</div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'</span></div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'</span></div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'</span></div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'</span></div><div class="line"></div><div class="line"># ExoPlayer as IMediaPlayer: optional, experimental</div><div class="line">compile <span class="string">'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="3rd"><a href="#3rd" class="headerlink" title="3rd"></a>3rd</h4><p>第一first 简写为1st 第二second 简写为2nd 第三third 简写为3rd </p>
 <h3 id="Third-party-software-component"><a href="#Third-party-software-component" class="headerlink" title="Third-party software component"></a>Third-party software component</h3><p><a href="https://en.wikipedia.org/wiki/Third-party_software_component" target="_blank" rel="external">https://en.wikipedia.org/wiki/Third-party_software_component</a><br>by an entity other than the original vendor of the development platform.<br>非开发平台提供的库。</p>
@@ -1921,163 +2103,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/22/android/android-doc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/22/android/android-doc/" itemprop="url">Android 技术文档总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T20:35:58+08:00">
-                2017-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2122,7 +2152,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2133,7 +2163,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2144,7 +2174,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

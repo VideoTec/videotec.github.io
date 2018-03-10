@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="参考网页 官方文档 Android Studio添加注释模板 insert special characters as text in XML editor for Android Live Template Variables  场景描述编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。希望能自动插入这些信息（特别是创建日期） 添加自定义的 Live Templates">
+<meta name="description" content="常用代码片段 hexo markdown header123456---title: $title$date: $date$tags: []categories: []---    abbr: hexo-headerdate 的表达式是 date(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;)title 的表达式是 fileNameWithoutExtension()   pri">
 <meta name="keywords" content="android,android studio,editor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Studio Editor 自动补全的模板定义">
 <meta property="og:url" content="http://wangxiang.work/2017/09/23/android/android studio/editor/as-editor-auto-fill-live-templates/index.html">
 <meta property="og:site_name" content="DeYi 技术博客">
-<meta property="og:description" content="参考网页 官方文档 Android Studio添加注释模板 insert special characters as text in XML editor for Android Live Template Variables  场景描述编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。希望能自动插入这些信息（特别是创建日期） 添加自定义的 Live Templates">
+<meta property="og:description" content="常用代码片段 hexo markdown header123456---title: $title$date: $date$tags: []categories: []---    abbr: hexo-headerdate 的表达式是 date(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;)title 的表达式是 fileNameWithoutExtension()   pri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-01T02:07:34.052Z">
+<meta property="og:updated_time" content="2018-03-10T10:46:53.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio Editor 自动补全的模板定义">
-<meta name="twitter:description" content="参考网页 官方文档 Android Studio添加注释模板 insert special characters as text in XML editor for Android Live Template Variables  场景描述编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。希望能自动插入这些信息（特别是创建日期） 添加自定义的 Live Templates">
+<meta name="twitter:description" content="常用代码片段 hexo markdown header123456---title: $title$date: $date$tags: []categories: []---    abbr: hexo-headerdate 的表达式是 date(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;)title 的表达式是 fileNameWithoutExtension()   pri">
 
 
 
@@ -401,14 +401,29 @@
       
 
       
-        <h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
+        <h3 id="常用代码片段"><a href="#常用代码片段" class="headerlink" title="常用代码片段"></a>常用代码片段</h3><ol>
+<li>hexo markdown header<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: $title$</div><div class="line">date: $date$</div><div class="line">tags: []</div><div class="line">categories: []</div><div class="line">---</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>abbr: hexo-header<br>date 的表达式是 <code>date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code><br>title 的表达式是 fileNameWithoutExtension()</p>
+</blockquote>
+<ol>
+<li>private final static String TAG<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private final static String TAG = &quot;$CLASS_NAME$&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>abbr: pfsst<br>变量 className()</p>
+</blockquote>
+<h3 id="参考网页"><a href="#参考网页" class="headerlink" title="参考网页"></a>参考网页</h3><ul>
 <li><a href="https://www.jetbrains.com/help/idea/live-templates.html" target="_blank" rel="external">官方文档</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/live-templates-2.html#d709674e34" target="_blank" rel="external">用于计算变量的预定义方法列表</a></li>
 <li><a href="http://blog.csdn.net/zuiwuyuan/article/details/48201185" target="_blank" rel="external">Android Studio添加注释模板</a></li>
 <li><a href="https://stackoverflow.com/questions/8613884/how-do-i-insert-special-characters-as-text-in-xml-editor-for-android" target="_blank" rel="external">insert special characters as text in XML editor for Android</a></li>
 <li><a href="https://www.jetbrains.com/help/idea/live-template-variables.html" target="_blank" rel="external">Live Template Variables</a></li>
 </ul>
-<h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。<br>希望能自动插入这些信息（特别是创建日期）</p>
-<h4 id="添加自定义的-Live-Templates"><a href="#添加自定义的-Live-Templates" class="headerlink" title="添加自定义的 Live Templates"></a>添加自定义的 Live Templates</h4><ul>
+<h3 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h3><p>编辑适用于 hexo 的 markdown 文档时，需要填写文章的头部信息。<br>希望能自动插入这些信息（特别是创建日期）</p>
+<h3 id="添加自定义的-Live-Templates"><a href="#添加自定义的-Live-Templates" class="headerlink" title="添加自定义的 Live Templates"></a>添加自定义的 Live Templates</h3><ul>
 <li>编辑 Live Templates 的位置  <blockquote>
 <p>File | settings | editor | Live Templates`</p>
 </blockquote>
@@ -425,12 +440,8 @@
 <li>Applicable in <em>*</em> 这个自动填充模块，应用于什么类型的文档。</li>
 </ul>
 </li>
-<li>示例代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: $title$</div><div class="line">date: $date$</div><div class="line">tags: []</div><div class="line">categories: []</div><div class="line">---</div></pre></td></tr></table></figure>
-</li>
 </ul>
-<blockquote>
-<p>Edit Variables 时指定 date 的表达式是 <code>date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code><br>title 的表达式是 fileNameWithoutExtension()</p>
-</blockquote>
+<h3 id="单词"><a href="#单词" class="headerlink" title="单词"></a>单词</h3><p>abbreviation<br>英 [əˌbri:viˈeɪʃn]   美 [əˌbriviˈeʃən]<br>n.省略，缩写，简化，缩写词，略语;[数学]约分;[音乐]略号</p>
 
       
     </div>
@@ -553,7 +564,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -564,7 +575,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -575,7 +586,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -610,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考网页"><span class="nav-number">1.</span> <span class="nav-text">参考网页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景描述"><span class="nav-number">1.1.</span> <span class="nav-text">场景描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加自定义的-Live-Templates"><span class="nav-number">1.2.</span> <span class="nav-text">添加自定义的 Live Templates</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用代码片段"><span class="nav-number">1.</span> <span class="nav-text">常用代码片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考网页"><span class="nav-number">2.</span> <span class="nav-text">参考网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#场景描述"><span class="nav-number">3.</span> <span class="nav-text">场景描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加自定义的-Live-Templates"><span class="nav-number">4.</span> <span class="nav-text">添加自定义的 Live Templates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词"><span class="nav-number">5.</span> <span class="nav-text">单词</span></a></li></ol></div>
             
 
           </div>

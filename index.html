@@ -278,6 +278,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2018/03/10/android/android studio/gradle/gradle-code-snippets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/android/android studio/gradle/gradle-code-snippets/" itemprop="url">Gradle 常用代码片段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T18:30:31+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/android-studio/gradle/" itemprop="url" rel="index">
+                    <span itemprop="name">gradle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>abiFilters<br><a href="https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.NdkOptions.html" target="_blank" rel="external">NdkOptions - abiFilters</a><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    <span class="comment">// Similar to other properties in the defaultConfig block, you can override</span></div><div class="line">    <span class="comment">// these properties for each product flavor in your build configuration.</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        ndk &#123;</div><div class="line">            <span class="comment">// Tells Gradle to build outputs for the following ABIs and package</span></div><div class="line">            <span class="comment">// them into your APK.</span></div><div class="line">            abiFilters <span class="string">'x86'</span>, <span class="string">'x86_64'</span>, <span class="string">'armeabi'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>另外一种方式<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;  </div><div class="line">    flavor1 &#123;  </div><div class="line">        ndk &#123;  </div><div class="line">            abiFilters <span class="string">"armeabi-v7a"</span></div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    flavor2 &#123;  </div><div class="line">        ndk &#123;  </div><div class="line">            abiFilters <span class="string">"armeabi-v7a"</span>  </div><div class="line">            abiFilters <span class="string">"x86"</span>  </div><div class="line">            abiFilters <span class="string">"armeabi"</span>  </div><div class="line">            abiFilters <span class="string">"arm64-v8a"</span>  </div><div class="line">            abiFilters <span class="string">"x86_64"</span>  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2018/03/07/android/android studio/file templates/android-studio-file-templates/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1787,132 +1966,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/18/tools/vcs/git/git-cmd-pull-rebase-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/18/tools/vcs/git/git-cmd-pull-rebase-error/" itemprop="url">git-cmd-pull-rebase-error</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T18:50:28+08:00">
-                2017-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">GreatWall@GreatWall-PC MINGW64 /d/work/videoshare_android.git (master)</div><div class="line">$ git pull --rebase</div><div class="line">remote: Counting objects: 21, done.</div><div class="line">remote: Compressing objects: 100% (19/19), done.</div><div class="line">remote: Total 21 (delta 11), reused 0 (delta 0)</div><div class="line">Unpacking objects: 100% (21/21), done.</div><div class="line">From git.oschina.net:huangshan309/videoshare_anroid</div><div class="line">   7a5bcb8..8f12aaa  master     -&gt; origin/master</div><div class="line">First, rewinding head to replay your work on top of it...</div><div class="line">/mingw64/libexec/git-core/git-rebase--am: line 54: /mingw64/libexec/git-core/git: Invalid argument</div><div class="line"></div><div class="line">git encountered an error while preparing the patches to replay</div><div class="line">these revisions:</div><div class="line"></div><div class="line">    8f12aaa608b02f16d5e07e3cc3faa1f8a23cb4d7...0406eb59af12c590b85f70ac6883e340466bbf61</div><div class="line"></div><div class="line">As a result, git cannot rebase them.</div><div class="line"></div><div class="line">GreatWall@GreatWall-PC MINGW64 /d/work/videoshare_android.git ((0406eb5...))</div><div class="line">$ git status</div><div class="line">Not currently on any branch.</div><div class="line">nothing to commit, working tree clean</div></pre></td></tr></table></figure>
-<p>处理方法：<br>git checkout master<br>git pull –rebase</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1957,7 +2015,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1968,7 +2026,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1979,7 +2037,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
