@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your buil">
+<meta name="description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your build">
 <meta name="keywords" content="gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle 常用代码片段">
 <meta property="og:url" content="http://wangxiang.work/2018/03/10/android/android studio/gradle/gradle-code-snippets/index.html">
 <meta property="og:site_name" content="DeYi 技术博客">
-<meta property="og:description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your buil">
+<meta property="og:description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your build">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-10T10:58:01.685Z">
+<meta property="og:updated_time" content="2018-03-10T11:00:51.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle 常用代码片段">
-<meta name="twitter:description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your buil">
+<meta name="twitter:description" content="abiFiltersNdkOptions - abiFilters1234567891011android &amp;#123;    // Similar to other properties in the defaultConfig block, you can override    // these properties for each product flavor in your build">
 
 
 
@@ -401,10 +401,7 @@
       
 
       
-        <ol>
-<li>abiFilters<br><a href="https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.NdkOptions.html" target="_blank" rel="external">NdkOptions - abiFilters</a><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    <span class="comment">// Similar to other properties in the defaultConfig block, you can override</span></div><div class="line">    <span class="comment">// these properties for each product flavor in your build configuration.</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        ndk &#123;</div><div class="line">            <span class="comment">// Tells Gradle to build outputs for the following ABIs and package</span></div><div class="line">            <span class="comment">// them into your APK.</span></div><div class="line">            abiFilters <span class="string">'x86'</span>, <span class="string">'x86_64'</span>, <span class="string">'armeabi'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+        <h3 id="abiFilters"><a href="#abiFilters" class="headerlink" title="abiFilters"></a>abiFilters</h3><p><a href="https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.NdkOptions.html" target="_blank" rel="external">NdkOptions - abiFilters</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    <span class="comment">// Similar to other properties in the defaultConfig block, you can override</span></div><div class="line">    <span class="comment">// these properties for each product flavor in your build configuration.</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        ndk &#123;</div><div class="line">            <span class="comment">// Tells Gradle to build outputs for the following ABIs and package</span></div><div class="line">            <span class="comment">// them into your APK.</span></div><div class="line">            abiFilters <span class="string">'x86'</span>, <span class="string">'x86_64'</span>, <span class="string">'armeabi'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>另外一种方式<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;  </div><div class="line">    flavor1 &#123;  </div><div class="line">        ndk &#123;  </div><div class="line">            abiFilters <span class="string">"armeabi-v7a"</span></div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    flavor2 &#123;  </div><div class="line">        ndk &#123;  </div><div class="line">            abiFilters <span class="string">"armeabi-v7a"</span>  </div><div class="line">            abiFilters <span class="string">"x86"</span>  </div><div class="line">            abiFilters <span class="string">"armeabi"</span>  </div><div class="line">            abiFilters <span class="string">"arm64-v8a"</span>  </div><div class="line">            abiFilters <span class="string">"x86_64"</span>  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
@@ -445,6 +442,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/10/android/android studio/file templates/android-studio-file-templates-recyclerview-adapter/" rel="prev" title="Android Studio File Templates for RecyclerView Adapter">
+                Android Studio File Templates for RecyclerView Adapter <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">wxiang</p>
@@ -511,7 +521,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -522,7 +532,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -558,6 +568,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#abiFilters"><span class="nav-number">1.</span> <span class="nav-text">abiFilters</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

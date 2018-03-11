@@ -278,6 +278,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/19/android/exception/java.lang.IllegalArgumentException-Surface.lockCanvas-Surface was already locked/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wxiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeYi 技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/19/android/exception/java.lang.IllegalArgumentException-Surface.lockCanvas-Surface was already locked/" itemprop="url">java.lang.IllegalArgumentException-Surface.lockCanvas-Surface was already locked</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T15:34:41+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/android/exception/" itemprop="url" rel="index">
+                    <span itemprop="name">exception</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Exception locking surface</div><div class="line">    java.lang.IllegalArgumentException: Surface was already locked</div><div class="line">        at android.view.Surface.lockCanvas(Surface.java:273)</div><div class="line">        at android.view.SurfaceView$4.internalLockCanvas(SurfaceView.java:977)</div><div class="line">        at android.view.SurfaceView$4.lockCanvas(SurfaceView.java:945)</div><div class="line">        at com.caiyi.youle.camera.ui.VideoProgressView.myDraw(VideoProgressView.java:232)</div><div class="line">        at com.caiyi.youle.camera.ui.VideoProgressView.run(VideoProgressView.java:119)</div><div class="line">        at java.lang.Thread.run(Thread.java:818)</div></pre></td></tr></table></figure>
+<p>VideoProgressView.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class VideoProgressView extends SurfaceView implements SurfaceHolder.Callback, Runnable &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void surfaceCreated(SurfaceHolder holder) &#123;</div><div class="line">        thread = new Thread(this);</div><div class="line">        drawing = true;</div><div class="line">        thread.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        while (drawing) &#123;</div><div class="line">            try &#123;</div><div class="line">                myDraw();</div><div class="line">                Thread.sleep(80);  //这里40毫秒更新一次.</div><div class="line">            &#125; catch (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">private void myDraw() &#123;</div><div class="line">    canvas = holder.lockCanvas();</div><div class="line"></div><div class="line">    progressHeight = getMeasuredHeight();</div><div class="line"></div><div class="line">    if (canvas != null) &#123;</div><div class="line">        canvas.drawRect(0, 0, screenWidth, progressHeight, backgroundPaint);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    countWidth = 0;</div><div class="line"></div><div class="line">    if (!timeList.isEmpty()) &#123;</div><div class="line">        long curSegmentTime = 0;</div><div class="line"></div><div class="line">        Iterator&lt;Integer&gt; iterator = timeList.iterator();</div><div class="line">        while (iterator.hasNext()) &#123;</div><div class="line"></div><div class="line">            curSegmentTime = iterator.next(); //当前这一段的时间.</div><div class="line"></div><div class="line">            float left = countWidth;</div><div class="line">            countWidth += curSegmentTime * perWidth;</div><div class="line">            if (canvas != null) &#123;</div><div class="line">                canvas.drawRect(left, 0, countWidth, progressHeight, progressPaint);</div><div class="line">                canvas.drawRect(countWidth, 0, countWidth + breakWidth, progressHeight, breakPaint);</div><div class="line">            &#125;</div><div class="line">            countWidth += breakWidth;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (timeList.isEmpty() || (!timeList.isEmpty() &amp;&amp; timeList.getLast() &lt;= minRecordTimeMS)) &#123;</div><div class="line">        float left = perWidth * minRecordTimeMS;</div><div class="line">        if (canvas != null) &#123;</div><div class="line">            canvas.drawRect(left, 0, left + minTimeWidth, progressHeight, minTimePaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if (currentState == State.BACKSPACE) &#123;</div><div class="line">        float left = countWidth - timeList.getLast() * perWidth;  //应该减去最后一段的时间.</div><div class="line">        float right = countWidth;</div><div class="line">        if (canvas != null) &#123;</div><div class="line">            canvas.drawRect(left, 0, right, progressHeight, rollbackPaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     *  手指按下时，绘制新进度条</div><div class="line">     *</div><div class="line">     *  绘制一个新的刻度.</div><div class="line">     *</div><div class="line">     *  当设置新的时间过来后, 这里应该是两个时间戳的相减</div><div class="line">     */</div><div class="line">    if (currentState == State.START) &#123;</div><div class="line">        perProgress += perWidth * (curProgressTimeMs - lastProgressTimeMs);</div><div class="line"></div><div class="line">        float right = (countWidth + perProgress) &gt;= screenWidth ? screenWidth : (countWidth + perProgress);</div><div class="line"></div><div class="line">        if (canvas != null) &#123;</div><div class="line">            canvas.drawRect(countWidth, 0, right, progressHeight, progressPaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    long curSystemTime = System.currentTimeMillis();</div><div class="line">    if (drawFlashTime == 0 || curSystemTime - drawFlashTime &gt;= 500) &#123;</div><div class="line">        isVisible = !isVisible;</div><div class="line">        drawFlashTime = curSystemTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (isVisible) &#123;</div><div class="line">        if (currentState == State.START) &#123;</div><div class="line">            if (canvas != null) &#123;</div><div class="line">                canvas.drawRect(countWidth + perProgress, 0, countWidth + flashWidth + perProgress, progressHeight,</div><div class="line">                        flashPaint);</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            if (canvas != null) &#123;</div><div class="line">                canvas.drawRect(countWidth, 0, countWidth + flashWidth, progressHeight, flashPaint);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    lastProgressTimeMs = curProgressTimeMs;</div><div class="line">    if (canvas != null) &#123;</div><div class="line">        holder.unlockCanvasAndPost(canvas);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/10/18/tools/vcs/git/git-cmd-pull-rebase-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1812,170 +1977,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangxiang.work/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wxiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DeYi 技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/30/android/android sdk/android.media.MediaPlayer/MediaPlayer/" itemprop="url">MediaPlayer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T19:21:13+08:00">
-                2017-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/android/android-sdk/" itemprop="url" rel="index">
-                    <span itemprop="name">android sdk</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://developer.android.com/guide/topics/media/mediaplayer.html?hl=zh-cn" target="_blank" rel="external">MediaPlayer</a><br><a href="https://developer.android.com/reference/android/media/MediaPlayer.html?hl=zh-cn" target="_blank" rel="external">android.media.MediaPlayer</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2025,7 +2026,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2036,7 +2037,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
