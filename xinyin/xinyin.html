@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>xinyin 示例</title>
+</head>
+
+<body>
+    <!-- 页面内容 -->
+    <input type="file" id="dirPicker" webkitdirectory directory multiple>
+    <div id="dirPicker-2">选择</div>
+
+    <ul id="fileList"></ul>
+    <script type="module">
+        import { xinyin_worker } from './xinyin-main.js';
+        document.getElementById('dirPicker-2').addEventListener('click', async function (event) {
+            let opfs = await navigator.storage.getDirectory();
+            for await (const [key, value] of opfs.entries()) {
+                if (value.kind === 'file') {
+                    let file = await value.getFile();
+                    console.log(`文件(${file.name})内容:\n${await file.text()}`);
+                } else if (value.kind === 'directory') {
+                    console.log(`目录: ${key}`);
+                }
+            }
+
+            xinyin_worker.postMessage({
+                message_code: 'generate_xinyin_words32',
+                message: {
+                    txt_in_heart: '你好，世界！',
+                    start: 6,
+                    count: 666
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
