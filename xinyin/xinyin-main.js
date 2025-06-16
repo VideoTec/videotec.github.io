@@ -5,7 +5,7 @@
 
 console.log('Initializing xinyin worker...2');
 
-const xinyin_worker = new Worker('xinyin-worker.js', {
+const xinyin_worker = new Worker('./xinyin-worker.js', {
     type: 'module',
     name: 'xinyin-worker'
 });
