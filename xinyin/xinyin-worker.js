@@ -1,6 +1,6 @@
 import xinyin, { import_xinyin_words32, generate_xinyin_words32, sign_message } from './xinyin_wasm.js';
 // import bs58 from 'bs58';
-import bs58 from './bs58.js';
+// import bs58 from './bs58.js';
 
 let opfsRoot = await navigator.storage.getDirectory();
 let walletsFile = await opfsRoot.getFileHandle('wallets', { create: true });
