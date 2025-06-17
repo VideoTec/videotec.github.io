@@ -4,37 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>xinyin 示例</title>
+    <script src="./xinyin-main.js" type="module"></script>
 </head>
 
 <body>
-    <!-- 页面内容 -->
-    <input type="file" id="dirPicker" webkitdirectory directory multiple>
-    <div id="dirPicker-2">选择</div>
-
-    <ul id="fileList"></ul>
-    <script type="module">
-        import { xinyin_worker } from './xinyin-main.js';
-        document.getElementById('dirPicker-2').addEventListener('click', async function (event) {
-            let opfs = await navigator.storage.getDirectory();
-            for await (const [key, value] of opfs.entries()) {
-                if (value.kind === 'file') {
-                    let file = await value.getFile();
-                    console.log(`文件(${file.name})内容:\n${await file.text()}`);
-                } else if (value.kind === 'directory') {
-                    console.log(`目录: ${key}`);
-                }
-            }
-
-            xinyin_worker.postMessage({
-                message_code: 'generate_xinyin_words32',
-                message: {
-                    txt_in_heart: '你好，世界！',
-                    start: 6,
-                    count: 666
-                }
-            });
-        });
-    </script>
+    <div><button id="list_sks">查看本地存储的SKS</button></div>
+    <input type="text" id="txt_in_heart" value="不立文字">
+    <div>起始位置: <input type="number" id="start" value="6"></div>
+    <div>生成数量: <input type="number" id="count" value="666"></div>
+    <button id="generate_words32">生成心印助记字</button>
+    <div><input type="text" id="words32_input" value="" placeholder="生成的心印助记字"></div>
+    <div>保存密钥的密码: <input type="text" id="passphrase" value="local-encrypt-passphrase"></div>
+    <button id="import_words32">导入心印助记字</button>
+    <div><input type="text" id="sign_address" value="" placeholder="请输入签名钱包地址"></div>
+    <div>签名消息: <input type="text" id="sign_message" value="Hello, this is a test message."></div>
+    <button id="sign">签名</button>
+    <button id="delete_sks_store">删除SKS存储</button>
 </body>
 
 </html>
