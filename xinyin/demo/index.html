@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Page</title>
+    <link rel="stylesheet" href="./demo.css" />
+    <script src="./demo.js" defer type="module"></script>
+  </head>
+  <body>
+    <h1>『心印助记字』演示</h1>
+    <div class="card">
+      <h2>选择字符集</h2>
+      <label for="inputStartOf8105">选择字符集开始位置:</label>
+      <input type="text" id="inputStartOf8105" value="6" />
+      <label for="inputCountIn8105">选择字符集数量:</label>
+      <input type="text" id="inputCountIn8105" value="666" />
+    </div>
+    <div class="card">
+      <h2>输入心印密语</h2>
+      <input
+        type="text"
+        id="inputTxtInHeart"
+        value="不立文字 心心相印 教外别传"
+      />
+    </div>
+    <div class="card">
+      <button id="btnGenerateWord32">生成 Word32！</button>
+      <textarea
+        id="outputWord32"
+        rows="4"
+        cols="50"
+        placeholder="生成的 Word32 将显示在这里..."
+      ></textarea>
+    </div>
+    <div class="card">
+      <h2>导入『心印助记字』</h2>
+      <label for="inputWords32">输入心印助记字:</label>
+      <input
+        type="text"
+        id="inputWords32"
+      ></input>
+      <label for="inputPassword">输入密码(注意：密码用于加密和解密导入的私钥):</label>
+      <input type="text" id="inputPassword" />
+      <button id="btnImportWords32">导入</button>
+      <label for="inputSolanaAddress">导入的 Solana 地址:</label>
+      <input
+        type="text"
+        id="inputSolanaAddress"
+      />
+    </div>
+  </body>
+  <footer>
+    <p>&copy; 2023 Demo Page</p>
+  </footer>
+</html>
