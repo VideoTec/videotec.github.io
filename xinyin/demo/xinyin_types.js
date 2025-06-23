@@ -11,6 +11,9 @@ export const XinYinMessageCode = {
   /** 签名消息，返回签名结果 */
   SignMessage: "sign-message",
   SignMessageResult: "message-signed-result",
+  /** 导入的密钥列表 */
+  ListSks: "list-sks",
+  ListSksResult: "sks-listed-result",
   /** 清理缓存 */
   ClearSksCache: "clear-sks-cache",
   ClearSksCacheResult: "sks-cache-cleared-result",
@@ -30,5 +33,6 @@ export const XinYinMessageCode = {
  * @property { string } [solanaAddress] - The Solana address.
  * @property { Uint8Array } [messageUint8] - The message to be signed, as a Uint8Array.
  * @property { Uint8Array } [signature] - The signature of the message, as a Uint8Array.
+ * @property { Array.<string> } [sks] - The secret key in base58 format.
  * @property { string } [errorMessage] - The error message, if any.
  */

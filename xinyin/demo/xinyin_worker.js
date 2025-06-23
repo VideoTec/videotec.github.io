@@ -83,6 +83,16 @@ function onXinYinMessage(message) {
       break;
     }
 
+    case XinYinMessageCode.ListSks: {
+      responseMsg.code = XinYinMessageCode.ListSksResult;
+      try {
+        responseMsg.sks = loadEncryptedSks();
+      } catch (error) {
+        responseMsg.errorMessage = error;
+      }
+      break;
+    }
+
     default: {
       responseMsg.errorMessage = `未知的消息类型: ${message.code}`;
     }

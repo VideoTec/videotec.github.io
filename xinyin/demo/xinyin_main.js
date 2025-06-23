@@ -4,7 +4,7 @@ import { XinYinMessageCode } from "./xinyin_types.js";
  * @typedef { import('./xinyin_types.js').XinYinMessage } XinYinMessage
  */
 
-export { generateWords32, importWords32, signMessage, clearSksCache };
+export { generateWords32, importWords32, signMessage, clearSksCache, listSks };
 
 const xinyin_worker = new Worker("./xinyin_worker.js", {
   type: "module",
@@ -91,6 +91,18 @@ function clearSksCache() {
   return postMessageToXinyinWorker(message);
 }
 
+/**
+ * list SKs (Secret Keys) from the SKS file.
+ * @returns {Promise<Array<string>>} Returns a promise that resolves to the list of SKs.
+ */
+function listSks() {
+  const message = {
+    code: XinYinMessageCode.ListSks,
+    requestId: 0,
+  };
+  return postMessageToXinyinWorker(message);
+}
+
 /** @type { number } - xinyin request id */
 let gRequestId = 0;
 /**
@@ -164,7 +176,21 @@ function onXinyinMessage(message) {
       break;
     }
     case XinYinMessageCode.ClearSksCacheResult: {
-      console.log("SKS cache cleared successfully.");
+      if (request.code !== XinYinMessageCode.ClearSksCache) {
+        request.reject(
+          new Error("Unexpected message code for ClearSksCacheResult")
+        );
+        return;
+      }
+      request.resolve();
+      break;
+    }
+    case XinYinMessageCode.ListSksResult: {
+      if (request.code !== XinYinMessageCode.ListSks) {
+        request.reject(new Error("Unexpected message code for ListSksResult"));
+        return;
+      }
+      request.resolve(message.sks);
       break;
     }
     default:

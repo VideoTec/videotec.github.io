@@ -20,6 +20,17 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.small-button {
+    padding: 5px 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.small-button:hover {
+    background-color: #5a6268;
+}
 footer {
     margin-top: 20px;
     text-align: center;
@@ -44,7 +55,6 @@ input[type="text"]:focus {
 }
 textarea {
     width: 100%;
-    height: 100px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -62,4 +72,30 @@ textarea {
     flex-direction: column;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     align-content: space-around;
+}
+.result {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-break: break-all;
+}
+.tip {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 4px;
+    margin: 2px 0;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: smaller;
+}
+.warning {
+    color: #856404;
+    margin: 2px 0;
+    font-size: smaller;
+    font-size: 0.5em;
 }
